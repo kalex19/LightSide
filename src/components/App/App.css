@@ -2,11 +2,17 @@
     box-sizing: border-box;
 }
 
+.App {
+    background: url('https://wallpaperplay.com/walls/full/b/e/4/124178.jpg');
+}
+
 h1 {
+    color: white;
     font-family: 'Star Jedi Outline';
     font-weight: 200;
     font-size: 60px;
     margin-right: 20%;
+    opacity: 0.9;
 }
 
 header {
@@ -26,6 +32,7 @@ header {
     cursor: pointer;
     font-family: 'Raleway';
     font-size: 14px;
+    opacity: 0.8;
     padding: 10px;
     width: 150px;
 }
