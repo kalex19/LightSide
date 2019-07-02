@@ -8,7 +8,7 @@ export class Header extends Component {
 		super();
 		this.state = {
 			people: [],
-			Planets: [],
+			planets: [],
 			vehicles: [],
 			favorites: [],
 			error: ''
@@ -84,13 +84,13 @@ export class Header extends Component {
 
 		const Planets = () => (
 			<div>
-				<Container favorites={this.state.favorites} data={this.state.planet} /> {' '}
+				<Container favorites={this.state.favorites} data={this.state.planets} /> {' '}
 			</div>
 		);
 
 		const Vehicles = () => (
 			<div>
-				<Container favorites={this.state.favorites} data={this.state.vehicle} /> {' '}
+				<Container favorites={this.state.favorites} data={this.state.vehicles} /> {' '}
 			</div>
 		);
 		return (
@@ -118,8 +118,8 @@ export class Header extends Component {
 						</Link>{' '}
 						{' '}
 					</div>{' '}
-					<Route path="/People" component={People} /> <Route path="/Planets
-		" component={Planets} /> {' '}
+					<Route path="/People" component={People} /> 
+					<Route path="/Planets" component={Planets} /> {' '}
 					<Route path="/Vehicles" component={Vehicles} /> {' '}
 				</Router>{' '}
 				{/* {!this.state.people.length &&
