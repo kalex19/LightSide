@@ -13,7 +13,32 @@ export class Header extends Component {
 			favorites: [],
 			error: ''
 		};
+	}
 
+		componentDidMount() {
+			let url = 'https://swapi.co/'
+		
+			fetch(`${url}api/people/`)
+			.then(response => response.json())
+			.then(data => data.results)
+			.then(people => this.setState({people}))
+			.catch(error => this.setState({error}))
+		
+			fetch(`${url}api/planets/`)
+			.then(response => response.json())
+			.then(data => data.results)
+			.then(planet => this.setState({planet}))
+			.catch(error => this.setState({error}))
+		
+			fetch(`${url}api/vehicles/`)
+			.then(response => response.json())
+			.then(data => data.results)
+			.then(vehicle => this.setState({vehicle}))
+			.catch(error => this.setState({error}))
+		  }
+
+
+	render() {
 		const People = () => (
 			<div>
 				<Container data={this.state.people} /> {' '}
@@ -32,8 +57,6 @@ export class Header extends Component {
 			</div>
 		);
 	}
-
-	render() {
 		return (
 			<div>
 				<header className="lightside-header">
