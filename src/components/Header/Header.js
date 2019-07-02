@@ -8,79 +8,121 @@ export class Header extends Component {
 		super();
 		this.state = {
 			people: [],
-			planet: [],
-			vehicle: [],
+			planets: [],
+			vehicles: [],
 			favorites: [],
 			error: ''
 		};
 	}
 
-		componentDidMount() {
-			let url = 'https://swapi.co/'
-		
-			fetch(`${url}api/people/`)
-			.then(response => response.json())
-			.then(data => data.results)
-			.then(people => this.setState({people}))
-			.catch(error => this.setState({error: error.message}))
-		
-			fetch(`${url}api/planets/`)
-			.then(response => response.json())
-			.then(data => data.results)
-			.then(planet => this.setState({planet}))
-			.catch(error => this.setState({error: error.message}))
-		
-			fetch(`${url}api/vehicles/`)
-			.then(response => response.json())
-			.then(data => data.results)
-			.then(vehicle => this.setState({vehicle}))
-			.catch(error => this.setState({error: error.message}))
-		  }
+	componentDidMount() {
+		this.getPeople();
+		this.getPlanets();
+		this.getVehicles();
+	}
 
+	getPeople = () => {
+		let url = 'https://swapi.co/';
+
+		fetch(`${url}api/people/`)
+			.then(response => response.json())
+			.then(data => data.results)
+			.then(people =>
+				this.setState({
+					people
+				})
+			)
+			.catch(error =>
+				this.setState({
+					error
+				})
+			);
+	};
+
+	getPlanets = () => {
+		let url = 'https://swapi.co/';
+
+		fetch(`${url}api/planets/`)
+			.then(response => response.json())
+			.then(data => data.results)
+			.then(planets =>
+				this.setState({
+					planets
+				})
+			)
+			.catch(error =>
+				this.setState({
+					error
+				})
+			);
+	};
+
+	getVehicles = () => {
+		let url = 'https://swapi.co/';
+
+		fetch(`${url}api/vehicles/`)
+			.then(response => response.json())
+			.then(data => data.results)
+			.then(vehicles =>
+				this.setState({
+					vehicles
+				})
+			)
+			.catch(error =>
+				this.setState({
+					error
+				})
+			);
+	};
 
 	render() {
 		const People = () => (
 			<div>
-				<Container data={this.state.people} /> {' '}
+				<Container favorites={this.state.favorites} data={this.state.people} /> {' '}
 			</div>
 		);
 
 		const Planets = () => (
 			<div>
-				<Container data={this.state.planet} /> {' '}
+				<Container favorites={this.state.favorites} data={this.state.planets} /> {' '}
 			</div>
 		);
 
 		const Vehicles = () => (
 			<div>
-				<Container data={this.state.vehicle} /> {' '}
+				<Container favorites={this.state.favorites} data={this.state.vehicles} /> {' '}
 			</div>
 		);
-
 		return (
 			<div>
 				<header className="lightside-header">
 					<h1> Light Side </h1>{' '}
 					<button className="btns favorited">
-						Favorited: <span> 0 </span>{' '}
+						Favorited: <span> {this.state.favorites.length} </span> {' '}
 					</button>{' '}
+					{' '}
 				</header>{' '}
+				{' '}
 				<Router>
 					<div className="change-btn">
 						<Link to="/People">
-							<button className="btns people-btn"> People </button>{' '}
+							<button className="btns people-btn"> People </button> {' '}
 						</Link>{' '}
+						{' '}
 						<Link to="/Planets">
-							<button className="btns planets-btn"> Planets </button>{' '}
+							<button className="btns planets-btn"> Planets </button> {' '}
 						</Link>{' '}
+						{' '}
 						<Link to="/Vehicles">
-							<button className="btns vehicles-btn"> Vehicles </button>{' '}
+							<button className="btns vehicles-btn"> Vehicles </button> {' '}
 						</Link>{' '}
+						{' '}
 					</div>{' '}
-					<Route path="/People" component={People} />
-					<Route path="/Planets" component={Planets} />
-					<Route path="/Vehicles" component={Vehicles} />{' '}
+					<Route path="/People" component={People} /> 
+					<Route path="/Planets" component={Planets} /> {' '}
+					<Route path="/Vehicles" component={Vehicles} /> {' '}
 				</Router>{' '}
+				{People} {Planets} {Vehicles}{' '}
 			</div>
 		);
 	}
