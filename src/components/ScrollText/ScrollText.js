@@ -14,11 +14,7 @@ export class ScrollText extends Component {
 		let range = 7;
 		let num = Math.floor(Math.random() * Math.floor(range)) + 1;
 		let url = `https://swapi.co/api/films/${num}`;
-
-		fetch(url)
-		.then(response => response.json())
-		.then(data => this.setState({ film: data }))
-		.catch(error =>
+		fetch(url).then(response => response.json()).then(data => this.setState({ film: data })).catch(error =>
 			this.setState({
 				error: error.message
 			})

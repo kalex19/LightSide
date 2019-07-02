@@ -11,7 +11,7 @@ const Card = (props) => {
             <h2>{props.birthyear || props.terrain || props.model}</h2>
             <h2>{props.gender || props.diameter || props.vehicle_class}</h2>
             <h2>{props.height || props.population || props.passengers}</h2>
-            <h2>{props.eyecolor}</h2> */}
+            <h2>{props.eyecolor}</h2>
         </section>
     )
 }
