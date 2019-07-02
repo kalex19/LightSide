@@ -8,6 +8,7 @@ import PeopleData from '../Card/PeopleData.js'
 import PlanetsData from '../Card/PlanetsData.js'
 import VehiclesData from '../Card/VehiclesData.js'
 
+
 class App extends Component {
   constructor() {
     super();
@@ -50,8 +51,14 @@ class App extends Component {
             <Route path='/Planets' component={Planets} />
             <Route path='/Vehicles' component={Vehicles} />
           </Router>
-          
-          
+      
+    return (
+      <div className="App">
+        <header className="App-header">
+          <h1>Hello!</h1>
+          {console.log(PeopleData.results)}
+          {console.log(PlanetsData.results)}
+          {console.log(VehiclesData.results)}
         </header>
       </div>
     )
