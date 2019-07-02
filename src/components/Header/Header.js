@@ -22,19 +22,19 @@ export class Header extends Component {
 			.then(response => response.json())
 			.then(data => data.results)
 			.then(people => this.setState({people}))
-			.catch(error => this.setState({error}))
+			.catch(error => this.setState({error: error.message}))
 		
 			fetch(`${url}api/planets/`)
 			.then(response => response.json())
 			.then(data => data.results)
 			.then(planet => this.setState({planet}))
-			.catch(error => this.setState({error}))
+			.catch(error => this.setState({error: error.message}))
 		
 			fetch(`${url}api/vehicles/`)
 			.then(response => response.json())
 			.then(data => data.results)
 			.then(vehicle => this.setState({vehicle}))
-			.catch(error => this.setState({error}))
+			.catch(error => this.setState({error: error.message}))
 		  }
 
 

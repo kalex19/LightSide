@@ -1,6 +1,6 @@
 import React from 'react';
 import './Card.css';
-
+import PropTypes from 'prop-types';
 
 const Card = (props) => {
     return (
@@ -13,6 +13,10 @@ const Card = (props) => {
             <h2>Eye color: {props.eyecolor}</h2> */}
         </section>
     )
+}
+
+Card.propTypes = {
+    props: PropTypes.string
 }
 
 export default Card;
