@@ -13,7 +13,6 @@ const Container = ({data}) => {
             model={item.model}
             class={item.vehicle_class}
             passengers={item.passengers}
-            
         />
     })
     return(

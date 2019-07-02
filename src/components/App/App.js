@@ -1,23 +1,43 @@
 import React, { Component } from 'react';
 import './App.css';
-import Header from '../Header/Header.js';
 import Container from '../Container/Container.js';
-// import Card from '../Card/Card.js'
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import PeopleData from '../Card/PeopleData.js'
-import PlanetsData from '../Card/PlanetsData.js'
-import VehiclesData from '../Card/VehiclesData.js'
+
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      people: PeopleData.results,
-      planet: PlanetsData.results,
-      vehicle: VehiclesData.results,
-      favorites: ''
+      people: [],
+      planet: [],
+      vehicle: [],
+      favorites: '',
+      error: 'Error you have made!'
     }
   }
+
+  componentDidMount() {
+    let url = 'https://swapi.co/'
+
+    fetch(`${url}api/people/`)
+    .then(response => response.json())
+    .then(data => data.results)
+    .then(people => this.setState({people}))
+    .catch(error => this.setState({error}))
+
+    fetch(`${url}api/planets/`)
+    .then(response => response.json())
+    .then(data => data.results)
+    .then(planet => this.setState({planet}))
+    .catch(error => this.setState({error}))
+
+    fetch(`${url}api/vehicles/`)
+    .then(response => response.json())
+    .then(data => data.results)
+    .then(vehicle => this.setState({vehicle}))
+    .catch(error => this.setState({error}))
+  }
+
   render() {
     const People = () => (
       <div>
@@ -42,7 +62,6 @@ class App extends Component {
         <header className="lightside-header">
           <h1>Light Side</h1>
           <button className="btns favorited">Favorited: <span>0</span></button>
-          {/* <Header /> */}
         </header>
         <Router>
           <div className="change-btn">
