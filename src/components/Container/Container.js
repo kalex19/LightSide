@@ -17,7 +17,7 @@ const Container = ({data}) => {
         />
     })
     return(
-        <main>
+        <main className="card-container">
             {findData}
         </main>
     )

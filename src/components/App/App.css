@@ -3,13 +3,42 @@
 }
 
 .App {
-    text-align: center;
+    background: url('https://wallpaperplay.com/walls/full/b/e/4/124178.jpg');
 }
 
 h1 {
+    color: white;
     font-family: 'Star Jedi Outline';
     font-weight: 200;
     font-size: 60px;
+    margin-right: 20%;
+    opacity: 0.9;
+}
+
+header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center
+}
+
+.change-btn {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.btns {
+    border-radius: 15px;
+    cursor: pointer;
+    font-family: 'Raleway';
+    font-size: 14px;
+    opacity: 0.8;
+    padding: 10px;
+    width: 150px;
+}
+
+.favorited {
+    font-size: 12px;
 }
 
 
