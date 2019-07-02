@@ -41,18 +41,25 @@ class App extends Component {
       <div className="App">
         <header className="lightside-header">
           <h1>Light Side</h1>
-          <Header />
-          <Router>
-            <Link to='/People'><button className="btns people-btn">People</button></Link>
-            <Link to='/Planets'><button className="btns planets-btn">Planets</button></Link>
-            <Link to='/Vehicles'><button className="btns vehicles-btn">Vehicles</button></Link>
+          <button className="btns favorited">Favorited: <span>0</span></button>
+          {/* <Header /> */}
+        </header>
+        <Router>
+          <div className="change-btn">
+              <Link to='/People'>
+                <button className="btns people-btn">People</button>
+              </Link>
+              <Link to='/Planets'>
+                <button className="btns planets-btn">Planets</button>
+              </Link>
+              <Link to='/Vehicles'>
+                <button className="btns vehicles-btn">Vehicles</button>
+              </Link>
+            </div>
             <Route path='/People' component={People} />
             <Route path='/Planets' component={Planets} />
             <Route path='/Vehicles' component={Vehicles} />
           </Router>
-          
-          
-        </header>
       </div>
     )
   };
