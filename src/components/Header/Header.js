@@ -56,7 +56,7 @@ export class Header extends Component {
 				<Container data={this.state.vehicle} /> {' '}
 			</div>
 		);
-
+	}
 		return (
 			<div>
 				<header className="lightside-header">

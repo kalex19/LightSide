@@ -1,4 +1,3 @@
-
 import './App.css';
 import Header from '../Header/Header';
 import ScrollText from '../ScrollText/ScrollText';
