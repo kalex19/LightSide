@@ -1,0 +1,13 @@
+.btn-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.btns {
+    border-radius: 15px;
+    cursor: pointer;
+    font-family: 'Raleway';
+    font-size: 14px;
+    padding: 20px;
+    width: 100px;
+  }
