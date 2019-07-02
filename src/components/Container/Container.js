@@ -2,23 +2,45 @@ import React from 'react';
 import Card from '../Card/Card.js';
 import './Container.css';
 
-const Container = ({data}) => {
+const Container = ({
+    data
+}) => {
     const findData = data.map(item => {
         return <Card
-            name={item.name}
-            birthyear={item.birth_year}
-            gender={item.gender}
-            height={item.height}
-            eyecolor={item.eye_color}
-            model={item.model}
-            class={item.vehicle_class}
-            passengers={item.passengers}
+        name = {
+            item.name
+        }
+        birthyear = {
+            item.birth_year
+        }
+        gender = {
+            item.gender
+        }
+        height = {
+            item.height
+        }
+        eyecolor = {
+            item.eye_color
+        }
+        model = {
+            item.model
+        }
+        class = {
+            item.vehicle_class
+        }
+        passengers = {
+            item.passengers
+        }
+        favorites = {
+            data.favorites
+        }
         />
     })
-    return(
-        <main className="card-container">
-            {findData}
-        </main>
+    return ( <
+        main className = "card-container" > {
+            findData
+        } <
+        /main>
     )
 }
 
