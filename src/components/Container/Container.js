@@ -4,6 +4,8 @@ import './Container.css';
 
 const Container = ({data}) => {
     const findData = data.map(item => {
+        {console.log(data)}
+
         return <Card
             name={item.name}
             birthyear={item.birth_year}
@@ -11,6 +13,9 @@ const Container = ({data}) => {
             height={item.height}
             eyecolor={item.eye_color}
             model={item.model}
+            terrain={item.terrain}
+            diameter={item.diameter}
+            population={item.population}
             class={item.vehicle_class}
             passengers={item.passengers}
         />
