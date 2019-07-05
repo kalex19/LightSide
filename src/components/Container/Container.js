@@ -2,9 +2,8 @@ import React from 'react';
 import Card from '../Card/Card.js';
 import './Container.css';
 
-const Container = ({
-    data
-}) => {
+const Container = ({ data }) => {
+    {console.log(data)}
     const findData = data.map(item => {
         return <Card
             name = {
@@ -12,6 +11,15 @@ const Container = ({
             }
             birthyear = {
                 item.birth_year
+            }
+            terrain = {
+                item.terrain
+            }
+            diameter = {
+                item.diameter
+            }
+            population = {
+                item.population
             }
             gender = {
                 item.gender

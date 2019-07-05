@@ -6,21 +6,26 @@ const Card = (props) => {
     return (
         <section className="card">
             <h2>
-                Name: {props.name}
+                <span className='headers'>Name:</span> {props.name}
             </h2>
-            {console.log(props.terrain)}
             <button className='favorited'><span role="img">🤩</span></button>
+            <article>
+                {props.birthyear ? <h2><span className='headers'>Birthyear:</span> {props.birthyear}</h2> : null}
+                {props.model ? <h2><span className='headers'>Model:</span> {props.model}</h2> : null}
+                {props.terrain ? <h2><span className='headers'>Terrain:</span> {props.terrain}</h2> : null}
+            </article>
+            <article>
+                {props.gender ? <h2><span className='headers'>Gender:</span> {props.gender}</h2> : null}
+                {props.diameter ? <h2><span className='headers'>Diameter:</span> {props.diameter}</h2> : null}
+                {props.class ? <h2><span className='headers'>Class:</span> {props.class}</h2> : null}
+            </article>
+            <article>
+                {props.height ? <h2><span className='headers'>Height:</span> {props.height}</h2> : null}
+                {props.passengers ? <h2><span className='headers'>Passengers:</span> {props.passengers}</h2> : null}
+                {props.population ? <h2><span className='headers'>Population:</span> {props.population}</h2> : null}
+            </article>
             <h2>
-                {props.birthyear || props.terrain || props.model}
-            </h2>
-            <h2>
-                {props.gender || props.diameter || props.vehicle_class}
-            </h2>
-            <h2>
-                {props.height || props.population || props.passengers}
-            </h2>
-            <h2>
-                {props.eyecolor}
+            <span className='headers'>Eye color:</span> {props.eyecolor}
             </h2>
         </section>
     )
