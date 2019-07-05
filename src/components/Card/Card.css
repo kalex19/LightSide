@@ -1,5 +1,5 @@
 .card {
-    align-items: center;
+    /* align-items: center; */
     background-color: white;
     border: 1px solid black;
     border-radius: 5px;
@@ -16,6 +16,17 @@
     width: 300px;
 }
 
+<<<<<<< HEAD
 .active {
     color: yellow;
+=======
+h2 {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.headers {
+    font-size: 20px;
+    font-weight: 900;
+>>>>>>> start-testing
 }
