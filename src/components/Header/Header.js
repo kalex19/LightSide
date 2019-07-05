@@ -3,9 +3,10 @@ import Container from '../Container/Container';
 import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 import React, { Component } from 'react';
 import Home from '../Home/Home.js';
-import PeopleData from '../Card/PeopleData.js'
-import PlanetsData from '../Card/PlanetsData.js'
-import VehiclesData from '../Card/VehiclesData.js'
+// import Loader from '../Loader/Loader.js';
+import PeopleData from '../Card/PeopleData.js';
+import PlanetsData from '../Card/PlanetsData.js';
+import VehiclesData from '../Card/VehiclesData.js';
 
 export class Header extends Component {
 	constructor() {
@@ -85,7 +86,6 @@ export class Header extends Component {
 				<Container favorites={this.state.favorites} data={this.state.people} /> {' '}
 			</div>
 		);
-		{console.log('people', People)}
 
 		const Planets = () => (
 			<div>

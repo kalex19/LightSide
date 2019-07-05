@@ -8,7 +8,7 @@ const Card = (props) => {
             <h2>
                 <span className='headers'>Name:</span> {props.name}
             </h2>
-            <button className='favorited'><span role="img">🤩</span></button>
+            <button className='favorited'><span role="img" aria-label="star eye emoji">🤩</span></button>
             <article>
                 {props.birthyear ? <h2><span className='headers'>Birthyear:</span> {props.birthyear}</h2> : null}
                 {props.model ? <h2><span className='headers'>Model:</span> {props.model}</h2> : null}
@@ -24,9 +24,9 @@ const Card = (props) => {
                 {props.passengers ? <h2><span className='headers'>Passengers:</span> {props.passengers}</h2> : null}
                 {props.population ? <h2><span className='headers'>Population:</span> {props.population}</h2> : null}
             </article>
-            <h2>
-            <span className='headers'>Eye color:</span> {props.eyecolor}
-            </h2>
+            <article>
+                {props.eyecolor ? <h2><span className='headers'>Eye color:</span> {props.eyecolor}</h2> : null}
+            </article>
         </section>
     )
 }
