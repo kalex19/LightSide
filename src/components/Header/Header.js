@@ -1,15 +1,19 @@
 import './Header.css';
 import Container from '../Container/Container';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 import React, { Component } from 'react';
+import Home from '../Home/Home.js';
+import PeopleData from '../Card/PeopleData.js'
+import PlanetsData from '../Card/PlanetsData.js'
+import VehiclesData from '../Card/VehiclesData.js'
 
 export class Header extends Component {
 	constructor() {
 		super();
 		this.state = {
-			people: [],
-			planets: [],
-			vehicles: [],
+			people: [] || PeopleData,
+			planets: [] || PlanetsData,
+			vehicles: [] || VehiclesData,
 			favorites: [],
 			error: ''
 		};
@@ -81,6 +85,7 @@ export class Header extends Component {
 				<Container favorites={this.state.favorites} data={this.state.people} /> {' '}
 			</div>
 		);
+		{console.log('people', People)}
 
 		const Planets = () => (
 			<div>
@@ -93,34 +98,40 @@ export class Header extends Component {
 				<Container favorites={this.state.favorites} data={this.state.vehicles} /> {' '}
 			</div>
 		);
+
 		return (
 			<div>
-				<header className="lightside-header">
+				<header className='lightside-header'>
 					<h1> Light Side </h1>{' '}
-					<button className="btns favorited">
+					<button className='btns favorited'>
 						Favorited: <span> {this.state.favorites.length} </span> {' '}
 					</button>{' '}
 					{' '}
 				</header>{' '}
 				{' '}
 				<Router>
-					<div className="change-btn">
-						<Link to="/People">
+					<div className='change-btn'>
+						<NavLink to='/' className='nav'>
+							<button className="btns home-btn"> Home </button> {' '}
+						</NavLink>{' '}
+						{' '}
+						<NavLink to='/People' className='nav'>
 							<button className="btns people-btn"> People </button> {' '}
-						</Link>{' '}
+						</NavLink>{' '}
 						{' '}
-						<Link to="/Planets">
+						<NavLink to='/Planets' className='nav'>
 							<button className="btns planets-btn"> Planets </button> {' '}
-						</Link>{' '}
+						</NavLink>{' '}
 						{' '}
-						<Link to="/Vehicles">
+						<NavLink to='/Vehicles' className='nav'>
 							<button className="btns vehicles-btn"> Vehicles </button> {' '}
-						</Link>{' '}
+						</NavLink>{' '}
 						{' '}
 					</div>{' '}
-					<Route path="/People" component={People} /> 
-					<Route path="/Planets" component={Planets} /> {' '}
-					<Route path="/Vehicles" component={Vehicles} /> {' '}
+					<Route exact path='/' component={Home} />
+					<Route path='/People' render={() => <Container data={PeopleData.results} />} /> 
+					<Route path='/Planets' render={() => <Container data={PlanetsData.results} />} /> {' '}
+					<Route path='/Vehicles' render={() => <Container data={VehiclesData.results} />} /> {' '}
 				</Router>{' '}
 				{/* {!this.state.people.length &&
 				!this.states.planets.length &&
