@@ -1,9 +1,9 @@
 .card {
-    /* align-items: center; */
     background-color: white;
     border: 1px solid black;
     border-radius: 5px;
     display: flex;
+    flex: 0 1 30%;
     flex-direction: column;
     font-family: 'Raleway';
     font-size: 14px;
@@ -13,13 +13,8 @@
     margin-bottom: 20px;
     opacity: 0.75;
     padding: 10px;
-    width: 300px;
 }
 
-<<<<<<< HEAD
-.active {
-    color: yellow;
-=======
 h2 {
     font-size: 18px;
     font-weight: 500;
@@ -28,5 +23,31 @@ h2 {
 .headers {
     font-size: 20px;
     font-weight: 900;
->>>>>>> start-testing
+}
+
+
+@media screen and (max-width: 900px) {
+    .card {
+        flex: 0 1 30%;
+    }
+
+    h2 {
+        font-size: 16px;
+    }
+
+    .headers {
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .card {
+        flex: 0 1 40%;        
+    }
+}
+
+@media screen and (max-width: 560px) {
+    .card {
+        flex: 0 1 80%;        
+    }
 }

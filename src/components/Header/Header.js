@@ -102,7 +102,10 @@ export class Header extends Component {
 		return (
 			<div>
 				<header className='lightside-header'>
-					<h1> Light Side </h1>{' '}
+					<h1>
+						<a href="https://fontmeme.com/star-wars-font/" />
+						<img src="https://fontmeme.com/permalink/190707/98cc1fddc29cf0ae40d9e68ca4a87c49.png" alt="star-wars-font" border="0" />
+					</h1>{' '}
 					<button className='btns favorited'>
 						Favorited: <span> {this.state.favorites.length} </span> {' '}
 					</button>{' '}
