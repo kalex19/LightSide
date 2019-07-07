@@ -3,61 +3,41 @@ import './Card.css';
 import PropTypes from 'prop-types';
 
 const Card = props => {
-	handleClick = e => {
-		console.log(e);
-		this.props.favoriteCard(e);
-	};
-
+	const { favoriteCard, id, favorite } = props;
 	return (
 		<section className="card">
-			<button onClick={this.handleClick}>
-				{' '}
-				<i class="fab fa-galactic-senate favorite-btn"> Favorite </i>
-			</button>{' '}
+			<button className={`${favorite && 'active'}`} onClick={e => favoriteCard(id)}>
+				<i className="fab fa-galactic-senate favorite-btn"> Favorite </i>
+			</button>
 			<h2>
-				<span className="headers"> Name: </span> {props.name} {' '}
-			</h2>{' '}
-			{' '}
+				<span className="headers"> Name: </span> {props.name}
+			</h2>
 			<article>
-				{' '}
-				{' '}
 				{props.birthyear ? (
 					<h2>
-						{' '}
-						<span className="headers"> Birthyear: </span> {props.birthyear}{' '}
+						<span className="headers"> Birthyear: </span> {props.birthyear}
 					</h2>
-				) : null}{' '}
-				{' '}
+				) : null}
 				{props.model ? (
 					<h2>
-						{' '}
-						<span className="headers"> Model: </span> {props.model}{' '}
+						<span className="headers"> Model: </span> {props.model}
 					</h2>
-				) : null}{' '}
-				{' '}
+				) : null}
 				{props.terrain ? (
 					<h2>
-						{' '}
-						<span className="headers"> Terrain: </span> {props.terrain}{' '}
+						<span className="headers"> Terrain: </span> {props.terrain}
 					</h2>
-				) : null}{' '}
-				{' '}
-			</article>{' '}
-			{' '}
+				) : null}
+			</article>
 			<article>
-				{' '}
-				{' '}
 				{props.gender ? (
 					<h2>
-						{' '}
-						<span className="headers"> Gender: </span> {props.gender}{' '}
+						<span className="headers"> Gender: </span> {props.gender}
 					</h2>
-				) : null}{' '}
-				{' '}
+				) : null}
 				{props.diameter ? (
 					<h2>
-						{' '}
-						<span className="headers"> Diameter: </span> {props.diameter}{' '}
+						<span className="headers"> Diameter: </span> {props.diameter}
 					</h2>
 				) : null}{' '}
 				{' '}

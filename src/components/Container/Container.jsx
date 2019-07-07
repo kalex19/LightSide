@@ -2,11 +2,7 @@ import React from 'react';
 import Card from '../Card/Card';
 import './Container.css';
 
-const Container = ({ data, favorites }) => {
-	this.favoriteCard = e => {
-		console.log(e);
-		favorites(e);
-	};
+const Container = ({ data, favoriteCard }) => {
 	const findData = data.map(item => {
 		return (
 			<Card
@@ -21,9 +17,9 @@ const Container = ({ data, favorites }) => {
 				model={item.model}
 				class={item.vehicle_class}
 				passengers={item.passengers}
-				favorites={data.favorites}
 				id={Date.now()}
-				favoriteCard={this.favoriteCard}
+				favoriteCard={favoriteCard}
+				favorite={false}
 			/>
 		);
 	});

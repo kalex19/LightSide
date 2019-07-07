@@ -82,31 +82,47 @@ export class Header extends Component {
 	};
 
 	favoriteCard = id => {
-		const favoritedCard = data.filter(card => (e.target.id = id));
-		this.setState({
-			favorites: favoritedCard
-		});
+		const favoritedCard = [ ...this.state.people, ...this.state.planets, ...this.state.vehicles ].find(
+			card => (card.id = id)
+		);
+
+		if (favoritedCard) {
+			this.setState({
+				favorites: [ ...this.state.favorites, favoritedCard ]
+			});
+		}
+
+		// const toggle = favoritedCard.favorite != favoritedCard.favorite;
+
+		// const addCard = this.state.favorites.filter(favCard => favCard === favoritedCard);
+		// if (addCard) {
+
+		// } else {
+		// 	const deleteCard = this.state.favorites.filter(favCard => favCard !== favoritedCard);
+		// 	this.setState({
+		// 		favorites: deleteCard
+		// 	});
+		// }
+		console.log(this.state.favorites);
 	};
+	//need to toggle favorite on the card
 
 	render() {
 		const People = () => (
 			<div>
-				<Container favorites={this.state.favorites} data={this.state.people} /> {' '}
+				<Container favoriteCard={this.favoriteCard} data={this.state.people} /> {' '}
 			</div>
 		);
-		{
-			console.log('people', People);
-		}
 
 		const Planets = () => (
 			<div>
-				<Container favorites={this.state.favorites} data={this.state.planets} /> {' '}
+				<Container favoriteCard={this.favoriteCard} data={this.state.planets} /> {' '}
 			</div>
 		);
 
 		const Vehicles = () => (
 			<div>
-				<Container favorites={this.state.favorites} data={this.state.vehicles} /> {' '}
+				<Container favoriteCard={this.favoriteCard} data={this.state.vehicles} /> {' '}
 			</div>
 		);
 
@@ -145,7 +161,7 @@ export class Header extends Component {
 						{' '}
 					</div>{' '}
 					<Route exact path="/" component={Home} />{' '}
-					<Route path="/Favorites" render={() => <Container favorites={this.state.favorites} />} />
+					<Route path="/Favorites" render={() => <Favorites favorites={this.state.favorites} />} />
 					<Route
 						path="/People"
 						render={() => <Container favoriteCard={this.favoriteCard} data={PeopleData.results} />}
@@ -161,7 +177,7 @@ export class Header extends Component {
 					/>{' '}
 					{' '}
 				</Router>
-				{!this.state.people.length && !this.states.planets.length && !this.state.vehicles.length && <Loading />}
+				{/* {!this.state.people.length && !this.states.planets.length && !this.state.vehicles.length && <Loading />} */}
 				{People} {Planets} {Vehicles}
 			</div>
 		);
