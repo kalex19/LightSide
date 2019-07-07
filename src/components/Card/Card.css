@@ -24,4 +24,7 @@ h2 {
 .headers {
     font-size: 20px;
     font-weight: 900;
+  
+.active {
+    color: yellow;
 }
