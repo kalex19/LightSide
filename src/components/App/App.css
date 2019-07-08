@@ -3,13 +3,3 @@
 *::after {
     box-sizing: border-box;
 }
-
-
-h1 {
-    color: white;
-    font-family: 'Star Jedi Outline';
-    font-weight: 200;
-    font-size: 60px;
-    margin-right: 20%;
-    opacity: 0.9;
-}
