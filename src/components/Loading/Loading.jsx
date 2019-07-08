@@ -5,7 +5,6 @@ export default function Loading(){
 		<section className="loadingContent">
 			<div className="loadingImage">
 				<img src="https://tinyurl.com/y2rcnl6u" />
-				{/* change */}
 			</div>
 		</section>
 	);
