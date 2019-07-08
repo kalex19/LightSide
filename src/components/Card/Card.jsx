@@ -3,6 +3,7 @@ import './Card.css';
 import PropTypes from 'prop-types';
 
 const Card = props => {
+	console.log(props)
 	const { favoriteCard, info } = props;
 	const cardInfo = [];
 	for (let key in info) {

@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow, mount } from 'enzyme';
-import Container from './Container';
+import Container from './Container.jsx';
 
 describe('Container', () => {
     it('should match snapshot', () => {

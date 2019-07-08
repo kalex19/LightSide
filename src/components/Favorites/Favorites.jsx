@@ -1,6 +1,6 @@
 import React from 'react';
 import '../Card/Card.css';
-import Card from '../Card/Card';
+import Card from '../Card/Card.jsx';
 
 const Favorites = ({ favorites, favoriteCard }) => {
 	const showfavorites = favorites.map(fav => {
