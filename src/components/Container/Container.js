@@ -3,8 +3,6 @@ import Card from '../Card/Card.js';
 import './Container.css';
 
 const Container = ({ data }) => {
-    console.log(data)
-
     const findData = data.map(item => {
         return <Card
             name = {
@@ -48,7 +46,7 @@ const Container = ({ data }) => {
     
     return ( 
         <main className="card-container"> 
-            { findData } 
+            { findData }{' '}
         </main>
     )
 }

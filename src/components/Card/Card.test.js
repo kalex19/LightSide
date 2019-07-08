@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow, mount } from 'enzyme';
-import Card from './Card';
+import Card from './Card.js';
 
 describe('Card', () => {
     it('should match snapshot', () => {

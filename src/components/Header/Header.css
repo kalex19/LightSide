@@ -10,7 +10,8 @@ header {
   margin-bottom: 50px;
 }
 
-.btns {
+.btns,
+.show-more {
   border-radius: 15px;
   cursor: pointer;
   font-family: 'Raleway';
@@ -21,10 +22,21 @@ header {
   margin: 1%;
 }
 
-.btns:hover {
+.btns:hover,
+.show-more:hover {
   background-color: #8DB4ED;
   font-weight: bold;
 }
+
+.show-more {
+  width: 200px;
+}
+
+.show-more-ctr {
+  display: flex;
+  justify-content: space-around;
+}
+
 
 @media screen and (max-width: 650px) {
   header {
