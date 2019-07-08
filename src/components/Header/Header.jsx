@@ -5,7 +5,7 @@ import Home from '../Home/Home.jsx';
 import Container from '../Container/Container';
 import Favorites from '../Favorites/Favorites';
 import Loading from '../Loading/Loading';
-import { cleanPlanets } from '../../Cleaner';
+import { cleanPlanets, cleanPeople, cleanVehicles } from '../../Cleaner';
 
 export class Header extends Component {
 	constructor() {
@@ -29,7 +29,7 @@ export class Header extends Component {
 		let url = 'https://swapi.co/';
 		fetch(`${url}api/people/`)
 			.then(response => response.json())
-			.then(data => data.results)
+			.then(data => cleanPeople(data.results))
 			.then(people =>
 				this.setState({
 					people
@@ -63,7 +63,7 @@ export class Header extends Component {
 		let url = 'https://swapi.co/';
 		fetch(`${url}api/vehicles/`)
 			.then(response => response.json())
-			.then(data => data.results)
+			.then(data => cleanVehicles(data.results))
 			.then(vehicles =>
 				this.setState({
 					vehicles
