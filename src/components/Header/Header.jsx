@@ -124,7 +124,10 @@ export class Header extends Component {
 						</NavLink>
 					</div>
 					<Route exact path="/" component={Home} />
-					<Route path="/Favorites" render={() => <Favorites favorites={this.state.favorites} />} />
+					<Route
+						path="/Favorites"
+						render={() => <Favorites favorites={this.state.favorites} favoriteCard={this.favoriteCard} />}
+					/>
 					<Route
 						path="/People"
 						render={() => <Container favoriteCard={this.favoriteCard} data={this.state.people} />}
