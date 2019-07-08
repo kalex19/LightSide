@@ -81,26 +81,19 @@ export class Header extends Component {
 			card => card.id === id
 		);
 
-		if (favoritedCard) {
+		favoritedCard.favorite = !favoritedCard.favorite;
+
+		if (favoritedCard.favorite) {
 			this.setState({
 				favorites: [ ...this.state.favorites, favoritedCard ]
 			});
+		} else {
+			this.setState({
+				favorites: this.state.favorites.filter(favorite => favorite.id !== id)
+			});
 		}
-
-		// const toggle = favoritedCard.favorite != favoritedCard.favorite;
-
-		// const addCard = this.state.favorites.filter(favCard => favCard === favoritedCard);
-		// if (addCard) {
-
-		// } else {
-		// 	const deleteCard = this.state.favorites.filter(favCard => favCard !== favoritedCard);
-		// 	this.setState({
-		// 		favorites: deleteCard
-		// 	});
-		// }
 		console.log(this.state.favorites);
 	};
-	//need to toggle favorite on the card
 	//route.js file - render routes vs app
 
 	render() {

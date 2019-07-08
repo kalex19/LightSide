@@ -4,7 +4,8 @@ export const cleanPlanets = (planets) => {
     name: planet.name,
     population: planet.population,
     terrain: planet.terrain,
-    diameter: planet.diameter
+    diameter: planet.diameter,
+    favorite: false
   }))
 };
 
@@ -15,7 +16,8 @@ export const cleanPeople = (people) => {
     gender: person.gender,
     birthYear: person.birth_year,
     height: person.height,
-    eyeColor: person.eye_color
+    eyeColor: person.eye_color,
+    favorite: false
   }))
 }
 
@@ -25,6 +27,7 @@ export const cleanVehicles = (vehicles) => {
     name: vehicle.name,
     model: vehicle.model,
     class: vehicle.vehicle_class,
-    passengers: vehicle.passengers
+    passengers: vehicle.passengers,
+    favorite: false
   }))
 }

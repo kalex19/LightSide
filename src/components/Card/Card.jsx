@@ -3,7 +3,7 @@ import './Card.css';
 import PropTypes from 'prop-types';
 
 const Card = props => {
-	const { favoriteCard, id, favorite, info } = props;
+	const { favoriteCard, info } = props;
 	const cardInfo = [];
 	for (let key in info) {
 		if (key !== 'id' && key !== 'name') {
@@ -16,7 +16,7 @@ const Card = props => {
 	}
 	return (
 		<section className="card">
-			<button className={`${favorite && 'active'}`} onClick={e => favoriteCard(id)}>
+			<button className={`${info.favorite && 'active'}`} onClick={e => favoriteCard(info.id)}>
 				<i className="fab fa-galactic-senate favorite-btn"> Favorite </i>
 			</button>
 			<h2>
