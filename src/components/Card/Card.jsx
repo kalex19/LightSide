@@ -39,47 +39,39 @@ const Card = props => {
 					<h2>
 						<span className="headers"> Diameter: </span> {props.diameter}
 					</h2>
-				) : null}{' '}
-				{' '}
+				) : null}
 				{props.class ? (
 					<h2>
-						{' '}
-						<span className="headers"> Class: </span> {props.class}{' '}
+						<span className="headers"> Class: </span> {props.class}
 					</h2>
-				) : null}{' '}
-				{' '}
-			</article>{' '}
-			{' '}
+				) : null}
+			</article>
+
 			<article>
-				{' '}
-				{' '}
 				{props.height ? (
 					<h2>
-						{' '}
-						<span className="headers"> Height: </span> {props.height}{' '}
+						<span className="headers"> Height: </span> {props.height}
 					</h2>
-				) : null}{' '}
-				{' '}
+				) : null}
+
 				{props.passengers ? (
 					<h2>
-						{' '}
-						<span className="headers"> Passengers: </span> {props.passengers}{' '}
+						<span className="headers"> Passengers: </span> {props.passengers}
 					</h2>
-				) : null}{' '}
-				{' '}
+				) : null}
+
 				{props.population ? (
 					<h2>
-						{' '}
-						<span className="headers"> Population: </span> {props.population}{' '}
+						<span className="headers"> Population: </span> {props.population}
 					</h2>
-				) : null}{' '}
-				{' '}
-			</article>{' '}
-			{' '}
-			<h2>
-				<span className="headers"> Eye color: </span> {props.eyecolor} {' '}
-			</h2>{' '}
-			{' '}
+				) : null}
+
+				{props.eyecolor ? (
+					<h2>
+						<span className="headers"> Eye color: </span> {props.eyecolor}
+					</h2>
+				) : null}
+			</article>
 		</section>
 	);
 };

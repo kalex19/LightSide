@@ -1,21 +1,18 @@
 import './Header.css';
-import Container from '../Container/Container';
 import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 import React, { Component } from 'react';
 import Home from '../Home/Home.jsx';
-import PeopleData from '../Card/PeopleData.js';
-import PlanetsData from '../Card/PlanetsData.js';
-import VehiclesData from '../Card/VehiclesData.js';
-import Loading from '../Loading/Loading';
+import Container from '../Container/Container';
 import Favorites from '../Favorites/Favorites';
+import Loading from '../Loading/Loading';
 
 export class Header extends Component {
 	constructor() {
 		super();
 		this.state = {
-			people: [] || PeopleData,
-			planets: [] || PlanetsData,
-			vehicles: [] || VehiclesData,
+			people: [],
+			planets: [],
+			vehicles: [],
 			favorites: [],
 			error: ''
 		};
@@ -29,8 +26,7 @@ export class Header extends Component {
 
 	getPeople = () => {
 		let url = 'https://swapi.co/';
-
-		fetch(`${url}api/${this.state.people}/`)
+		fetch(`${url}api/people/`)
 			.then(response => response.json())
 			.then(data => data.results)
 			.then(people =>
@@ -47,7 +43,6 @@ export class Header extends Component {
 
 	getPlanets = () => {
 		let url = 'https://swapi.co/';
-
 		fetch(`${url}api/planets/`)
 			.then(response => response.json())
 			.then(data => data.results)
@@ -65,7 +60,6 @@ export class Header extends Component {
 
 	getVehicles = () => {
 		let url = 'https://swapi.co/';
-
 		fetch(`${url}api/vehicles/`)
 			.then(response => response.json())
 			.then(data => data.results)
@@ -83,7 +77,7 @@ export class Header extends Component {
 
 	favoriteCard = id => {
 		const favoritedCard = [ ...this.state.people, ...this.state.planets, ...this.state.vehicles ].find(
-			card => (card.id = id)
+			card => card.id === id
 		);
 
 		if (favoritedCard) {
@@ -106,79 +100,51 @@ export class Header extends Component {
 		console.log(this.state.favorites);
 	};
 	//need to toggle favorite on the card
+	//route.js file - render routes vs app
 
 	render() {
-		const People = () => (
-			<div>
-				<Container favoriteCard={this.favoriteCard} data={this.state.people} /> {' '}
-			</div>
-		);
-
-		const Planets = () => (
-			<div>
-				<Container favoriteCard={this.favoriteCard} data={this.state.planets} /> {' '}
-			</div>
-		);
-
-		const Vehicles = () => (
-			<div>
-				<Container favoriteCard={this.favoriteCard} data={this.state.vehicles} /> {' '}
-			</div>
-		);
-
+		const { people, planets, vehicles } = this.state;
 		return (
 			<div>
 				<header className="lightside-header">
-					<h1> Light Side </h1> {' '}
-					{/* <button className="btns favorited">
-						Favorited: <span> {this.state.favorites.length} </span> {' '}
-					</button>{' '} */}{' '}
-				</header>{' '}
-				{' '}
+					<h1> Light Side </h1>
+				</header>
 				<Router>
 					<div className="change-btn">
-						<NavLink to="/" className="nav">
-							<button className="btns home-btn"> Home </button> {' '}
-						</NavLink>{' '}
-						<NavLink to="/Favorites" className="nav">
+						<NavLink to="/">
+							<button className="btns home-btn">Home</button>
+						</NavLink>
+						<NavLink to="/Favorites">
 							<button className="btns favorites-btn">
-								{' '}
-								Favorites: <span> {this.state.favorites.length} </span>{' '}
-							</button>{' '}
-							{' '}
-						</NavLink>{' '}
-						<NavLink to="/People" className="nav">
-							<button className="btns people-btn"> People </button> {' '}
-						</NavLink>{' '}
-						{' '}
-						<NavLink to="/Planets" className="nav">
-							<button className="btns planets-btn"> Planets </button> {' '}
-						</NavLink>{' '}
-						{' '}
-						<NavLink to="/Vehicles" className="nav favorited btns">
-							<button className="btns vehicles-btn"> Vehicles </button> {' '}
-						</NavLink>{' '}
-						{' '}
-					</div>{' '}
-					<Route exact path="/" component={Home} />{' '}
+								Favorites: <span> {this.state.favorites.length}</span>
+							</button>
+						</NavLink>
+						<NavLink to="/People">
+							<button className="btns people-btn">People</button>
+						</NavLink>
+						<NavLink to="/Planets">
+							<button className="btns planets-btn">Planets</button>
+						</NavLink>
+						<NavLink to="/Vehicles">
+							<button className="btns vehicles-btn">Vehicles</button>
+						</NavLink>
+					</div>
+					<Route exact path="/" component={Home} />
 					<Route path="/Favorites" render={() => <Favorites favorites={this.state.favorites} />} />
 					<Route
 						path="/People"
-						render={() => <Container favoriteCard={this.favoriteCard} data={PeopleData.results} />}
+						render={() => <Container favoriteCard={this.favoriteCard} data={this.state.people} />}
 					/>
 					<Route
 						path="/Planets"
-						render={() => <Container favoriteCard={this.favoriteCard} data={PlanetsData.results} />}
-					/>{' '}
-					{' '}
+						render={() => <Container favoriteCard={this.favoriteCard} data={this.state.planets} />}
+					/>
 					<Route
 						path="/Vehicles"
-						render={() => <Container favoriteCard={this.favoriteCard} data={VehiclesData.results} />}
-					/>{' '}
-					{' '}
+						render={() => <Container favoriteCard={this.favoriteCard} data={this.state.vehicles} />}
+					/>
 				</Router>
-				{/* {!this.state.people.length && !this.states.planets.length && !this.state.vehicles.length && <Loading />} */}
-				{People} {Planets} {Vehicles}
+				{(!people.length || !planets.length || !vehicles.length) && <Loading />}
 			</div>
 		);
 	}
