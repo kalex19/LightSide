@@ -5,6 +5,7 @@ import Home from '../Home/Home.jsx';
 import Container from '../Container/Container';
 import Favorites from '../Favorites/Favorites';
 import Loading from '../Loading/Loading';
+import { cleanPlanets } from '../../Cleaner';
 
 export class Header extends Component {
 	constructor() {
@@ -45,7 +46,7 @@ export class Header extends Component {
 		let url = 'https://swapi.co/';
 		fetch(`${url}api/planets/`)
 			.then(response => response.json())
-			.then(data => data.results)
+			.then(data => cleanPlanets(data.results))
 			.then(planets =>
 				this.setState({
 					planets
