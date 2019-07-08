@@ -28,7 +28,9 @@ const Card = props => {
 };
 
 Card.propTypes = {
-	props: PropTypes.string
+	info: PropTypes.object,
+	key: PropTypes.number,
+	favoriteCard: PropTypes.func
 };
 
 export default Card;
