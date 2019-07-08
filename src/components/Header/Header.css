@@ -24,4 +24,5 @@ header {
 .btns:hover {
   background-color: #8DB4ED;
   font-weight: bold;
+  outline: none;
 }

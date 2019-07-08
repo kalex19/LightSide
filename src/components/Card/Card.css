@@ -1,5 +1,4 @@
 .card {
-    /* align-items: center; */
     background-color: white;
     border: 1px solid black;
     border-radius: 5px;
@@ -16,10 +15,6 @@
     width: 300px;
 }
 
-<<<<<<< HEAD
-.active {
-    color: yellow;
-=======
 h2 {
     font-size: 18px;
     font-weight: 500;
@@ -28,5 +23,24 @@ h2 {
 .headers {
     font-size: 20px;
     font-weight: 900;
->>>>>>> start-testing
+}
+
+.active {
+    background-color: yellow;
+}
+
+.favorite-btn {
+    margin: 0 20%;
+    padding: 2% 7%;
+    border: 2px black solid;
+    font-size: 1.3em;
+}
+
+.favorite-btn:hover {
+    background-color: yellow;
+}
+
+button {
+    border: 0px;
+    outline: none;
 }
