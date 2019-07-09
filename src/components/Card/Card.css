@@ -22,7 +22,6 @@ h2 {
 
 .headers {
     font-size: 20px;
-    font-weight: 900;
 }
 
 .favorite {
@@ -53,4 +52,8 @@ button {
 
 .fa-meteor {
     color: orangered;
+}
+
+.card-info {
+    font-size: 1.2em;
 }

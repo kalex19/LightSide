@@ -8,19 +8,20 @@ const Card = props => {
 	for (let key in info) {
 		if (key !== 'id' && key !== 'name' && key !== 'favorite') {
 			cardInfo.push(
-				<p>
+				<p className="card-info">
 					{key.toUpperCase()}: {info[key]}
 				</p>
 			);
 		}
 	}
+
 	return (
 		<section className="card">
 			<button onClick={e => favoriteCard(info.id)}>
 				<i className={`fab fa-galactic-senate favorite-btn ${info.favorite && 'favorite'}`}> Favorite </i>
 			</button>
 			<h2>
-				<span className="headers"> Name: </span> {info.name}
+				<span className="headers"> NAME: </span> {info.name}
 			</h2>
 			{cardInfo}
 		</section>

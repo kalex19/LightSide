@@ -3,6 +3,7 @@
     align-items: center;
     flex-wrap: wrap;
     margin: auto;
+    max-lines: <2>;
 }
 
 .back-btn {
@@ -19,4 +20,13 @@
 
 .back-btn:hover {
     color: yellow;
+}
+
+.showMoreBtn {
+    width: 100px;
+    height: 50px;
+    color: white;
+    background-color: turquoise;
+    margin: 2% 45%;
+    border-radius: 50%;
 }

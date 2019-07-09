@@ -10,14 +10,25 @@ const Container = ({ data, favoriteCard }) => {
 			<i class="fab fa-jedi-order"> Home </i>
 		</Link>
 	);
-	const findData = data.map(item => {
+
+	let num = 5;
+
+	const findData = data.slice(0, `${num}`).map(item => {
 		return <Card info={item} key={item.created} favoriteCard={favoriteCard} />;
 	});
+
+	const handleClick = e => {
+		e.preventDefault();
+		num = 15;
+	};
 
 	return (
 		<main className="card-container">
 			{findData}
 			{backBtn}
+			<button className="showMoreBtn" onClick={e => handleClick(e)}>
+				Show More
+			</button>
 		</main>
 	);
 };
