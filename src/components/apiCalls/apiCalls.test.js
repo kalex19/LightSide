@@ -1,7 +1,6 @@
 import { getPeople, getPlanets, getVehicles } from './apiCalls.js';
 import React from 'react';
 
-
 describe('fetched data', () => {
     let mockData;
 
