@@ -15,7 +15,7 @@ export const cleanPeople = (people) => {
     name: person.name,
     gender: person.gender,
     'birth year': person.birth_year,
-    Height: person.height,
+    height: person.height,
     'eye color': person.eye_color,
   }))
 }
@@ -23,9 +23,9 @@ export const cleanPeople = (people) => {
 export const cleanVehicles = (vehicles) => {
   return vehicles.map(vehicle => ({
     id: vehicle.created,
-    Name: vehicle.name,
-    Model: vehicle.model,
-    Class: vehicle.vehicle_class,
-    Passengers: vehicle.passengers,
+    name: vehicle.name,
+    model: vehicle.model,
+    class: vehicle.vehicle_class,
+    passengers: vehicle.passengers,
   }))
 }

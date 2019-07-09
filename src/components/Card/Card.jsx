@@ -19,6 +19,9 @@ const Card = props => {
 			<button onClick={e => favoriteCard(info.id)}>
 				<i className={`fab fa-galactic-senate favorite-btn ${info.favorite && 'favorite'}`}> Favorite </i>
 			</button>
+			<h2>
+				<span className="headers"> Name: </span> {info.name}
+			</h2>
 			{cardInfo}
 		</section>
 	);
