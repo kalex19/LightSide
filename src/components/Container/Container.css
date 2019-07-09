@@ -4,3 +4,19 @@
     flex-wrap: wrap;
     margin: auto;
 }
+
+.back-btn {
+    display: block;
+    margin: 10px 45%;
+    font-size: 2em;
+    color: white;
+    text-decoration: none;
+}
+
+.back-btn:visited {
+    text-decoration: none;
+}
+
+.back-btn:hover {
+    color: yellow;
+}
