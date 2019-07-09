@@ -1,32 +1,25 @@
+import { cleanPlanets, cleanPeople, cleanVehicles } from '../../Cleaner';
+
 export const getPeople = () => {
     return fetch('https://swapi.co/api/people/')
-        .then(response => {
-            if(!response.ok) {
-                throw Error('Error fetching people cards')
-            } else {
-                return response.json();
-            }
+        .then(response => response.json())
+        .then(data => {
+            return cleanPeople(data.results)
         })
 };
 
 export const getPlanets = () => {
     return fetch('https://swapi.co/api/planets/')
-        .then(response => {
-            if(!response.ok) {
-                throw Error('Error fetching planet cards')
-            } else {
-                return response.json();
-            }
+        .then(response => response.json())
+        .then(data => {
+            return cleanPlanets(data.results)
         })
 };
 
 export const getVehicles = () => {
     return fetch('https://swapi.co/api/vehicles/')
-        .then(response => {
-            if(!response.ok) {
-                throw Error('Error fetching vehicle cards')
-            } else {
-                return response.json();
-            }
+        .then(response => response.json())
+        .then(data => {
+            return cleanVehicles(data.results)
         })
 };
