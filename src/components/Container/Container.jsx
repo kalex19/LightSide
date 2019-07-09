@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 
 const Container = ({ data, favoriteCard }) => {
 	const findData = data.map(item => {
-		console.log(item);
 		return <Card info={item} key={item.created} favoriteCard={favoriteCard} />;
 	});
 

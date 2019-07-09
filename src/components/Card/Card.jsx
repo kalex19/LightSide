@@ -6,7 +6,7 @@ const Card = props => {
 	const { favoriteCard, info } = props;
 	const cardInfo = [];
 	for (let key in info) {
-		if (key !== 'id' && key !== 'name' && key != 'favorite') {
+		if (key !== 'id' && key !== 'name' && key !== 'favorite') {
 			cardInfo.push(
 				<p>
 					{key.toUpperCase()}: {info[key]}

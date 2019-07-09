@@ -20,9 +20,13 @@ export class Header extends Component {
 	}
 
 	componentDidMount() {
-		this.getPeople();
-		this.getPlanets();
-		this.getVehicles();
+		const { people, planets, vehicles, favorites } = this.state;
+		if (!!people && !!planets && !!vehicles) {
+			this.getPeople();
+			this.getPlanets();
+			this.getVehicles();
+		}
+		if (!!favorites) this.getFromStorage();
 	}
 
 	getPeople = () => {
@@ -92,9 +96,36 @@ export class Header extends Component {
 				favorites: this.state.favorites.filter(favorite => favorite.id !== id)
 			});
 		}
-		console.log(this.state.favorites);
+		this.saveToStorage();
 	};
-	//route.js file - render routes vs app
+
+	saveToStorage = () => {
+		const { people, planets, vehicles, favorites } = this.state;
+		let favs = JSON.stringify(favorites);
+		localStorage.setItem('favorites', favs);
+		let persons = JSON.stringify(people);
+		localStorage.setItem('people', persons);
+		let globe = JSON.stringify(planets);
+		localStorage.setItem('planets', globe);
+		let auto = JSON.stringify(vehicles);
+		localStorage.setItem('vehicles', auto);
+	};
+
+	//refactor saveToStorage
+
+	getFromStorage = () => {
+		for (let key in this.state) {
+			if (localStorage.hasOwnProperty(key)) {
+				let value = localStorage.getItem(key);
+				try {
+					value = JSON.parse(value);
+					this.setState({ [key]: value });
+				} catch (e) {
+					this.setState({ [key]: value });
+				}
+			}
+		}
+	};
 
 	render() {
 		const { people, planets, vehicles } = this.state;
@@ -126,7 +157,13 @@ export class Header extends Component {
 					<Route exact path="/" component={Home} />
 					<Route
 						path="/Favorites"
-						render={() => <Favorites favorites={this.state.favorites} favoriteCard={this.favoriteCard} />}
+						render={() => (
+							<Favorites
+								favorites={this.state.favorites}
+								favoriteCard={this.favoriteCard}
+								onLoad={this.getFromStorage}
+							/>
+						)}
 					/>
 					<Route
 						path="/People"
