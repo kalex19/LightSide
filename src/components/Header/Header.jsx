@@ -87,7 +87,7 @@ export class Header extends Component {
 
 		favoritedCard.favorite = !favoritedCard.favorite;
 
-		if (favoritedCard.favorite) {
+		if (favoritedCard.favorite && !this.state.favorites.includes(favoritedCard)) {
 			this.setState({
 				favorites: [ ...this.state.favorites, favoritedCard ]
 			});
@@ -132,7 +132,9 @@ export class Header extends Component {
 		return (
 			<div>
 				<header className="lightside-header">
-					<h1> Light Side </h1>
+					<h1>
+						Star <i class="fab fa-old-republic" /> Wars
+					</h1>
 				</header>
 				<Router>
 					<div className="change-btn">
