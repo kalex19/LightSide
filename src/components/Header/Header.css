@@ -26,8 +26,13 @@ header {
 }
 
 .btns:hover {
-  background-color: rgb(233, 240, 240);
+  background-color: turquoise;
   font-weight: bold;
   outline: none;
-  color: rgb(226, 96, 9);
+  color: white;
+}
+
+.btns:focus {
+  background-color: yellow;
+  color: black;
 }
