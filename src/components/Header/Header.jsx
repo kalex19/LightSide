@@ -94,7 +94,6 @@ export class Header extends Component {
 			});
 			e.target.innerText = 'Show More';
 		}
-		this.forceUpdate();
 	};
 
 	render() {

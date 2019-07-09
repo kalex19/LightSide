@@ -6,6 +6,18 @@ h1 {
     opacity: 0.9;
 }
 
+.btns:hover {
+  background-color: turquoise;
+  font-weight: bold;
+  outline: none;
+  color: white;
+}
+
+.btns:focus {
+  background-color: yellow;
+  color: black;
+}
+
 header {
     display: flex;
     justify-content: space-around;
@@ -28,9 +40,4 @@ header {
     width: 150px;
     margin: 1%;
   }
-  
-  .btns:hover {
-    background-color: #8DB4ED;
-    font-weight: bold;
-    outline: none;
-  }
+ 
