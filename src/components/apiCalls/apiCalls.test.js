@@ -20,13 +20,7 @@ describe('fetched data', () => {
     });
 
     it('should be called with the correct params', () => {
-        const expected = [
-            'https://swapi.co/api/people/',
-            {
-                method: 'GET',
-                headers: { 'Content-Type': 'application/json'}
-            }
-        ];
+        const expected = ['https://swapi.co/api/people/'];
 
         getPeople(mockData);
         expect(window.fetch).toHaveBeenCalledWith(...expected)
