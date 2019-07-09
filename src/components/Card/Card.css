@@ -43,10 +43,14 @@ h2 {
 .no-favorites {
     color: white;
     font-size: 2em;
-    margin: 5% 39%;
+    margin: 15% 37%;
 }
 
 button {
     border: 0px;
     outline: none;
+}
+
+.fa-meteor {
+    color: orangered;
 }

@@ -4,6 +4,10 @@ header {
   align-items: center;
 }
 
+.lightside-header h1 {
+  color: yellow;
+}
+
 .change-btn {
   display: flex;
   justify-content: space-around;
@@ -25,4 +29,5 @@ header {
   background-color: #8DB4ED;
   font-weight: bold;
   outline: none;
+  color: white;
 }

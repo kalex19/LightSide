@@ -1,3 +1,7 @@
-.loadingImage {
+.loadingContainer {
   margin: 10% 45%;
+}
+
+.loadingImage {
+  margin: 0 40%;
 }
