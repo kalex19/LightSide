@@ -43,7 +43,7 @@ describe('fetched data', () => {
                 ok: false
             });
         });
-        
+
         await expect(getPeople()).rejects.toEqual(Error('Error fetching people cards'))
     })
 })
