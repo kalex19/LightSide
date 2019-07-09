@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow, mount } from 'enzyme';
-import App from './App.jsk';
+import App from './App.jsx';
 
 
 describe('App', () => {
