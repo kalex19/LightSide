@@ -15,7 +15,8 @@ export class Header extends Component {
 			planets: [],
 			vehicles: [],
 			favorites: [],
-			error: ''
+			error: '',
+			num: 5
 		};
 	}
 
@@ -100,18 +101,10 @@ export class Header extends Component {
 	};
 
 	saveToStorage = () => {
-		const { people, planets, vehicles, favorites } = this.state;
+		const { favorites } = this.state;
 		let favs = JSON.stringify(favorites);
 		localStorage.setItem('favorites', favs);
-		let persons = JSON.stringify(people);
-		localStorage.setItem('people', persons);
-		let globe = JSON.stringify(planets);
-		localStorage.setItem('planets', globe);
-		let auto = JSON.stringify(vehicles);
-		localStorage.setItem('vehicles', auto);
 	};
-
-	//refactor saveToStorage
 
 	getFromStorage = () => {
 		for (let key in this.state) {
@@ -125,6 +118,22 @@ export class Header extends Component {
 				}
 			}
 		}
+	};
+
+	handleClick = e => {
+		e.preventDefault();
+		if (this.state.num === 5) {
+			this.setState({
+				num: 15
+			});
+			e.target.innerText = 'Show Less';
+		} else {
+			this.setState({
+				num: 5
+			});
+			e.target.innerText = 'Show More';
+		}
+		this.forceUpdate();
 	};
 
 	render() {
@@ -169,15 +178,36 @@ export class Header extends Component {
 					/>
 					<Route
 						path="/People"
-						render={() => <Container favoriteCard={this.favoriteCard} data={this.state.people} />}
+						render={() => (
+							<Container
+								favoriteCard={this.favoriteCard}
+								data={this.state.people}
+								handleClick={this.handleClick}
+								num={this.state.num}
+							/>
+						)}
 					/>
 					<Route
 						path="/Planets"
-						render={() => <Container favoriteCard={this.favoriteCard} data={this.state.planets} />}
+						render={() => (
+							<Container
+								favoriteCard={this.favoriteCard}
+								data={this.state.planets}
+								handleClick={this.handleClick}
+								num={this.state.num}
+							/>
+						)}
 					/>
 					<Route
 						path="/Vehicles"
-						render={() => <Container favoriteCard={this.favoriteCard} data={this.state.vehicles} />}
+						render={() => (
+							<Container
+								favoriteCard={this.favoriteCard}
+								data={this.state.vehicles}
+								handleClick={this.handleClick}
+								num={this.state.num}
+							/>
+						)}
 					/>
 				</Router>
 				{(!people.length || !planets.length || !vehicles.length) && <Loading />}
