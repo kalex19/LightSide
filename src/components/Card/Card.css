@@ -3,6 +3,7 @@
     border: 1px solid black;
     border-radius: 5px;
     display: flex;
+    flex: 0 1 30%;
     flex-direction: column;
     font-family: 'Raleway';
     font-size: 14px;

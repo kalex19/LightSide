@@ -5,11 +5,13 @@ import Home from '../Home/Home.jsx';
 import Container from '../Container/Container.jsx';
 import Favorites from '../Favorites/Favorites.jsx';
 import Loading from '../Loading/Loading.jsx';
+import { getPeople, getPlanets, getVehicles } from '../apiCalls/apiCalls.js'
 import { cleanPlanets, cleanPeople, cleanVehicles } from '../../Cleaner';
 
 export class App extends Component {
-	constructor() {
-		super();
+	constructor(props) {
+		console.log('props', props)
+		super(props);
 		this.state = {
 			people: [],
 			planets: [],
@@ -20,61 +22,49 @@ export class App extends Component {
 	}
 
 	componentDidMount() {
-		this.getPeople();
-		this.getPlanets();
-		this.getVehicles();
+		fetch('https://swapi.co/api/people/')
+		.then(response => response.json())
+		.then(data => {
+			this.setState({people: cleanPeople(data.results)})
+		})
+		
+		fetch('https://swapi.co/api/planets/')
+		.then(response => response.json())
+		.then(data => {
+			this.setState({planets: cleanPlanets(data.results)})
+		})
+		
+		fetch('https://swapi.co/api/vehicles/')
+		.then(response => response.json())
+		.then(data => {
+			this.setState({vehicles: cleanVehicles(data.results)})
+		})
 	}
 
-	getPeople = () => {
-		let url = 'https://swapi.co/';
-		fetch(`${url}api/people/`)
-			.then(response => response.json())
-			.then(data => cleanPeople(data.results))
-			.then(people =>
-				this.setState({
-					people
-				})
-			)
-			.catch(error =>
-				this.setState({
-					error
-				})
-			);
-	};
+	async fetchData() {
+		const { updatePeople, updatePlanets, updateVehicles } = this.props;
+		const { people, planets, vehicles } = this.state;
 
-	getPlanets = () => {
-		let url = 'https://swapi.co/';
-		fetch(`${url}api/planets/`)
-			.then(response => response.json())
-			.then(data => cleanPlanets(data.results))
-			.then(planets =>
-				this.setState({
-					planets
-				})
-			)
-			.catch(error =>
-				this.setState({
-					error
-				})
-			);
-	};
+		try {
+			const peopleData = await getPeople(people);
+			const planetData = await getPlanets(planets);
+			const vehicleData = await getVehicles(vehicles);
 
-	getVehicles = () => {
-		let url = 'https://swapi.co/';
-		fetch(`${url}api/vehicles/`)
-			.then(response => response.json())
-			.then(data => cleanVehicles(data.results))
-			.then(vehicles =>
-				this.setState({
-					vehicles
-				})
-			)
-			.catch(error =>
-				this.setState({
-					error
-				})
-			);
-	};
+			this.setState({
+				people: [],
+				planets: [],
+				vehicles: [],
+				favorites: [],
+				error: ''
+			}, updatePeople(peopleData), 
+			updatePlanets(planetData), 
+			updateVehicles(vehicleData));
+		} catch (error) {
+			this.setState({ error: 'Error fetching data' });
+		}
+	}
+	
+	
 
 	favoriteCard = id => {
 		const favoritedCard = [ ...this.state.people, ...this.state.planets, ...this.state.vehicles ].find(

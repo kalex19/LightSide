@@ -7,11 +7,7 @@ describe('Card', () => {
     it('should match snapshot', () => {
         const wrapper = shallow(
             <Card 
-                name="Kayla" 
-                birthyear="1950" 
-                gender="female" 
-                height="unknown" 
-                eyecolor="blue" 
+                name="Kayla"  
             />);
 
         expect(wrapper).toMatchSnapshot();
@@ -21,10 +17,6 @@ describe('Card', () => {
         <Card 
             name="Katie" 
             favorites={true} 
-            birthyear="1960" 
-            gender="female" 
-            height="unknown" 
-            eyecolor="green" 
         />);
 
         expect(wrapper).toMatchSnapshot();  

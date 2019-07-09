@@ -3,7 +3,6 @@ import './Card.css';
 import PropTypes from 'prop-types';
 
 const Card = props => {
-	console.log(props)
 	const { favoriteCard, info } = props;
 	const cardInfo = [];
 	for (let key in info) {
@@ -20,9 +19,6 @@ const Card = props => {
 			<button className={`${info.favorite && 'active'}`} onClick={e => favoriteCard(info.id)}>
 				<i className="fab fa-galactic-senate favorite-btn"> Favorite </i>
 			</button>
-			<h2>
-				<span className="headers"> Name: </span> {info.name}
-			</h2>
 			{cardInfo}
 		</section>
 	);
