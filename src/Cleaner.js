@@ -1,10 +1,10 @@
 export const cleanPlanets = (planets) => {
   return planets.map(planet => ({
     id: planet.created,
-    Name: planet.name,
-    Population: planet.population,
-    Terrain: planet.terrain,
-    Diameter: planet.diameter,
+    name: planet.name,
+    population: planet.population,
+    terrain: planet.terrain,
+    diameter: planet.diameter,
   }))
 };
 
@@ -12,11 +12,11 @@ export const cleanPeople = (people) => {
   {console.log(people)}
   return people.map(person => ({
     id: person.created,
-    Name: person.name,
-    Gender: person.gender,
-    'Birth Year': person.birth_year,
+    name: person.name,
+    gender: person.gender,
+    'birth year': person.birth_year,
     Height: person.height,
-    'Eye Color': person.eye_color,
+    'eye color': person.eye_color,
   }))
 }
 
