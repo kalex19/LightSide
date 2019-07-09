@@ -5,7 +5,7 @@ import Home from '../Home/Home.jsx';
 import Container from '../Container/Container';
 import Favorites from '../Favorites/Favorites';
 import Loading from '../Loading/Loading';
-import { getPeople, getPlanets, getVehicles } from '../apiCalls/apiCalls.js'
+import { getPeople, getPlanets, getVehicles } from '../apiCalls/apiCalls.js';
 
 export class Header extends Component {
 	constructor() {
@@ -16,7 +16,7 @@ export class Header extends Component {
 			vehicles: [],
 			favorites: [],
 			error: '',
-			num: 5
+			num: 4
 		};
 	}
 
@@ -30,16 +30,16 @@ export class Header extends Component {
 		if (!!favorites) this.getFromStorage();
 
 		getPeople()
-		.then(people => this.setState({people: people}))
-		.catch(this.setState({ error: 'Error fetching data' }))
-		
+			.then(people => this.setState({ people: people }))
+			.catch(this.setState({ error: 'Error fetching data' }));
+
 		getPlanets()
-		.then(planets => this.setState({planets: planets}))
-		.catch(this.setState({ error: 'Error fetching data' }))
-		
+			.then(planets => this.setState({ planets: planets }))
+			.catch(this.setState({ error: 'Error fetching data' }));
+
 		getVehicles()
-		.then(vehicles => this.setState({vehicles: vehicles}))
-		.catch(this.setState({ error: 'Error fetching data' }))
+			.then(vehicles => this.setState({ vehicles: vehicles }))
+			.catch(this.setState({ error: 'Error fetching data' }));
 	}
 
 	favoriteCard = id => {
@@ -83,14 +83,14 @@ export class Header extends Component {
 
 	handleClick = e => {
 		e.preventDefault();
-		if (this.state.num === 5) {
+		if (this.state.num === 4) {
 			this.setState({
 				num: 15
 			});
 			e.target.innerText = 'Show Less';
 		} else {
 			this.setState({
-				num: 5
+				num: 4
 			});
 			e.target.innerText = 'Show More';
 		}
@@ -102,7 +102,7 @@ export class Header extends Component {
 			<div>
 				<header className="lightside-header">
 					<h1>
-						Star <i className="fab fa-old-republic" /> Wars
+						Star <i className="fab fa-old-republic icon" /> Wars
 					</h1>
 				</header>
 				<Router>

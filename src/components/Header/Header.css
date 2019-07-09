@@ -1,9 +1,36 @@
+header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center
+}
+
 h1 {
-    color: white;
-    font-family: 'Star Jedi Outline';
-    font-weight: 200;
-    font-size: 60px;
-    opacity: 0.9;
+  color: white;
+  font-family: 'Star Jedi Outline';
+  font-weight: 200;
+  font-size: 60px;
+  opacity: 0.9;
+}
+
+.icon {
+  color: yellow
+}
+
+.change-btn {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 50px;
+}
+
+.btns {
+  border-radius: 15px;
+  cursor: pointer;
+  font-family: 'Raleway';
+  font-size: 16px;
+  opacity: 0.8;
+  padding: 10px;
+  width: 150px;
+  margin: 1%;
 }
 
 .btns:hover {
@@ -17,27 +44,3 @@ h1 {
   background-color: yellow;
   color: black;
 }
-
-header {
-    display: flex;
-    justify-content: space-around;
-    align-items: center
-  }
-  
-  .change-btn {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 50px;
-  }
-  
-  .btns {
-    border-radius: 15px;
-    cursor: pointer;
-    font-family: 'Raleway';
-    font-size: 16px;
-    opacity: 0.8;
-    padding: 10px;
-    width: 150px;
-    margin: 1%;
-  }
- 
