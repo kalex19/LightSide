@@ -22,6 +22,14 @@ export class App extends Component {
 	}
 
 	componentDidMount() {
+		const { people, planets, vehicles, favorites } = this.state;
+		if (!!people && !!planets && !!vehicles) {
+			getPeople();
+			getPlanets();
+			getVehicles();
+		}
+		if (!!favorites) this.getFromStorage();
+
 		fetch('https://swapi.co/api/people/')
 		.then(response => response.json())
 		.then(data => {
@@ -82,6 +90,35 @@ export class App extends Component {
 				favorites: this.state.favorites.filter(favorite => favorite.id !== id)
 			});
 		}
+		this.saveToStorage();
+	};
+
+	saveToStorage = () => {
+		const { people, planets, vehicles, favorites } = this.state;
+		let favs = JSON.stringify(favorites);
+		localStorage.setItem('favorites', favs);
+		let persons = JSON.stringify(people);
+		localStorage.setItem('people', persons);
+		let globe = JSON.stringify(planets);
+		localStorage.setItem('planets', globe);
+		let auto = JSON.stringify(vehicles);
+		localStorage.setItem('vehicles', auto);
+	};
+
+	//refactor saveToStorage
+
+	getFromStorage = () => {
+		for (let key in this.state) {
+			if (localStorage.hasOwnProperty(key)) {
+				let value = localStorage.getItem(key);
+				try {
+					value = JSON.parse(value);
+					this.setState({ [key]: value });
+				} catch (e) {
+					this.setState({ [key]: value });
+				}
+			}
+		}
 	};
 
 	render() {
@@ -114,7 +151,13 @@ export class App extends Component {
 					<Route exact path="/" component={Home} />
 					<Route
 						path="/Favorites"
-						render={() => <Favorites favorites={this.state.favorites} favoriteCard={this.favoriteCard} />}
+						render={() => (
+							<Favorites
+								favorites={this.state.favorites}
+								favoriteCard={this.favoriteCard}
+								onLoad={this.getFromStorage}
+							/>
+						)}
 					/>
 					<Route
 						path="/People"
