@@ -5,7 +5,7 @@ import Home from '../Home/Home.jsx';
 import Container from '../Container/Container';
 import Favorites from '../Favorites/Favorites';
 import Loading from '../Loading/Loading';
-import { cleanPlanets, cleanPeople, cleanVehicles } from '../../Cleaner';
+import { getPeople, getPlanets, getVehicles } from '../apiCalls/apiCalls.js'
 
 export class Header extends Component {
 	constructor() {
@@ -23,63 +23,24 @@ export class Header extends Component {
 	componentDidMount() {
 		const { people, planets, vehicles, favorites } = this.state;
 		if (!!people && !!planets && !!vehicles) {
-			this.getPeople();
-			this.getPlanets();
-			this.getVehicles();
+			getPeople();
+			getPlanets();
+			getVehicles();
 		}
 		if (!!favorites) this.getFromStorage();
+
+		getPeople()
+		.then(people => this.setState({people: people}))
+		.catch(this.setState({ error: 'Error fetching data' }))
+		
+		getPlanets()
+		.then(planets => this.setState({planets: planets}))
+		.catch(this.setState({ error: 'Error fetching data' }))
+		
+		getVehicles()
+		.then(vehicles => this.setState({vehicles: vehicles}))
+		.catch(this.setState({ error: 'Error fetching data' }))
 	}
-
-	getPeople = () => {
-		let url = 'https://swapi.co/';
-		fetch(`${url}api/people/`)
-			.then(response => response.json())
-			.then(data => cleanPeople(data.results))
-			.then(people =>
-				this.setState({
-					people
-				})
-			)
-			.catch(error =>
-				this.setState({
-					error
-				})
-			);
-	};
-
-	getPlanets = () => {
-		let url = 'https://swapi.co/';
-		fetch(`${url}api/planets/`)
-			.then(response => response.json())
-			.then(data => cleanPlanets(data.results))
-			.then(planets =>
-				this.setState({
-					planets
-				})
-			)
-			.catch(error =>
-				this.setState({
-					error
-				})
-			);
-	};
-
-	getVehicles = () => {
-		let url = 'https://swapi.co/';
-		fetch(`${url}api/vehicles/`)
-			.then(response => response.json())
-			.then(data => cleanVehicles(data.results))
-			.then(vehicles =>
-				this.setState({
-					vehicles
-				})
-			)
-			.catch(error =>
-				this.setState({
-					error
-				})
-			);
-	};
 
 	favoriteCard = id => {
 		const favoritedCard = [ ...this.state.people, ...this.state.planets, ...this.state.vehicles ].find(
@@ -141,7 +102,7 @@ export class Header extends Component {
 			<div>
 				<header className="lightside-header">
 					<h1>
-						Star <i class="fab fa-old-republic" /> Wars
+						Star <i className="fab fa-old-republic" /> Wars
 					</h1>
 				</header>
 				<Router>

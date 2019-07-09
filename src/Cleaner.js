@@ -5,7 +5,6 @@ export const cleanPlanets = (planets) => {
     population: planet.population,
     terrain: planet.terrain,
     diameter: planet.diameter,
-    favorite: false
   }))
 };
 
@@ -14,10 +13,9 @@ export const cleanPeople = (people) => {
     id: person.created,
     name: person.name,
     gender: person.gender,
-    birthYear: person.birth_year,
+    'birth year': person.birth_year,
     height: person.height,
-    eyeColor: person.eye_color,
-    favorite: false
+    'eye color': person.eye_color,
   }))
 }
 
@@ -28,6 +26,5 @@ export const cleanVehicles = (vehicles) => {
     model: vehicle.model,
     class: vehicle.vehicle_class,
     passengers: vehicle.passengers,
-    favorite: false
   }))
 }

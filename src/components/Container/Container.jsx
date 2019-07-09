@@ -1,5 +1,5 @@
 import React from 'react';
-import Card from '../Card/Card';
+import Card from '../Card/Card.jsx';
 import './Container.css';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 const Container = ({ data, favoriteCard, handleClick, num }) => {
 	const backBtn = (
 		<Link to={'/'} className="back-btn">
-			<i class="fab fa-jedi-order"> Home </i>
+			<i class="fab fa-jedi-order"> Back Home </i>
 		</Link>
 	);
 
