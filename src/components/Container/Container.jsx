@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 const Container = ({ data, favoriteCard }) => {
 	const backBtn = (
 		<Link to={'/'} className="back-btn">
-			<i class="fab fa-jedi-order"> Home </i>
+			<i class="fab fa-jedi-order"> Back Home </i>
 		</Link>
 	);
 	const findData = data.map(item => {

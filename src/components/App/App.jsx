@@ -22,54 +22,26 @@ export class App extends Component {
 	}
 
 	componentDidMount() {
-		const { people, planets, vehicles, favorites } = this.state;
-		if (!!people && !!planets && !!vehicles) {
-			getPeople();
-			getPlanets();
-			getVehicles();
-		}
+		const { favorites } = this.state;
 		if (!!favorites) this.getFromStorage();
 
-		fetch('https://swapi.co/api/people/')
-		.then(response => response.json())
+		getPeople()
 		.then(data => {
 			this.setState({ people: cleanPeople(data.results) })
 		})
+		.catch(this.setState({ error: 'Error fetching data' }))
 		
-		fetch('https://swapi.co/api/planets/')
-		.then(response => response.json())
+		getPlanets()
 		.then(data => {
 			this.setState({ planets: cleanPlanets(data.results) })
 		})
+		.catch(this.setState({ error: 'Error fetching data' }))
 		
-		fetch('https://swapi.co/api/vehicles/')
-		.then(response => response.json())
+		getVehicles()
 		.then(data => {
 			this.setState({ vehicles: cleanVehicles(data.results) })
 		})
-	}
-
-	async fetchData() {
-		const { updatePeople, updatePlanets, updateVehicles } = this.props;
-		const { people, planets, vehicles } = this.state;
-
-		try {
-			const peopleData = await getPeople(people);
-			const planetData = await getPlanets(planets);
-			const vehicleData = await getVehicles(vehicles);
-
-			this.setState({
-				people: [],
-				planets: [],
-				vehicles: [],
-				favorites: [],
-				error: ''
-			}, updatePeople(peopleData), 
-			updatePlanets(planetData), 
-			updateVehicles(vehicleData));
-		} catch (error) {
-			this.setState({ error: 'Error fetching data' });
-		}
+		.catch(this.setState({ error: 'Error fetching data' }))
 	}
 	
 	
@@ -78,7 +50,6 @@ export class App extends Component {
 		const favoritedCard = [ ...this.state.people, ...this.state.planets, ...this.state.vehicles ].find(
 			card => card.id === id
 		);
-
 		favoritedCard.favorite = !favoritedCard.favorite;
 
 		if (favoritedCard.favorite) {
