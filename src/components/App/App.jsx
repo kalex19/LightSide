@@ -22,7 +22,7 @@ export class App extends Component {
 	}
 
 	componentDidMount() {
-		const { people, planets, vehicles, favorites } = this.state;
+		const { favorites } = this.state;
 		if (!!favorites) this.getFromStorage();
 
 		getPeople()
@@ -50,7 +50,6 @@ export class App extends Component {
 		const favoritedCard = [ ...this.state.people, ...this.state.planets, ...this.state.vehicles ].find(
 			card => card.id === id
 		);
-
 		favoritedCard.favorite = !favoritedCard.favorite;
 
 		if (favoritedCard.favorite) {
