@@ -103,7 +103,7 @@ export class Header extends Component {
 			<div>
 				<header className="lightside-header">
 					<h1>
-						Star <i class="fab fa-old-republic" /> Wars
+						Star <i className="fab fa-old-republic" /> Wars
 					</h1>
 				</header>
 				<Router>
