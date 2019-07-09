@@ -34,7 +34,7 @@ h2 {
     margin: 0 20%;
     padding: 2% 7%;
     border: 2px black solid;
-    font-size: 1.3em;
+    font-size: 1.5em;
 }
 
 .favorite-btn:hover {
@@ -44,10 +44,14 @@ h2 {
 .no-favorites {
     color: white;
     font-size: 2em;
-    margin: 5% 39%;
+    margin: 15% 37%;
 }
 
 button {
     border: 0px;
     outline: none;
+}
+
+.fa-meteor {
+    color: orangered;
 }

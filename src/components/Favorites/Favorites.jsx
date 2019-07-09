@@ -10,7 +10,13 @@ const Favorites = ({ favorites, favoriteCard }) => {
 
 	return (
 		<main className="card-container">
-			{!favorites.length ? <h2 className="no-favorites">No Favorites Available</h2> : showfavorites}
+			{!favorites.length ? (
+				<h2 className="no-favorites">
+					<i class="fas fa-meteor" /> No Favorites Available
+				</h2>
+			) : (
+				showfavorites
+			)}
 		</main>
 	);
 };

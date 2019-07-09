@@ -22,7 +22,12 @@ export class App extends Component {
 	}
 
 	componentDidMount() {
-		const { favorites } = this.state;
+		const { people, planets, vehicles, favorites } = this.state;
+		if (!!people && !!planets && !!vehicles) {
+			getPeople();
+			getPlanets();
+			getVehicles();
+		}
 		if (!!favorites) this.getFromStorage();
 
 		getPeople()
@@ -45,14 +50,14 @@ export class App extends Component {
 	}
 	
 	
-
 	favoriteCard = id => {
 		const favoritedCard = [ ...this.state.people, ...this.state.planets, ...this.state.vehicles ].find(
 			card => card.id === id
 		);
+
 		favoritedCard.favorite = !favoritedCard.favorite;
 
-		if (favoritedCard.favorite) {
+		if (favoritedCard.favorite && !this.state.favorites.includes(favoritedCard)) {
 			this.setState({
 				favorites: [ ...this.state.favorites, favoritedCard ]
 			});
@@ -97,7 +102,9 @@ export class App extends Component {
 		return (
 			<div>
 				<header className="lightside-header">
-					<h1> Light Side </h1>
+					<h1>
+						Star <i class="fab fa-old-republic" /> Wars
+					</h1>
 				</header>
 				<Router>
 					<div className="change-btn">
@@ -106,7 +113,7 @@ export class App extends Component {
 						</NavLink>
 						<NavLink to="/Favorites">
 							<button className="btns favorites-btn">
-								Favorites: <span>{this.state.favorites.length}</span>
+								Favorites: <span> {this.state.favorites.length}</span>
 							</button>
 						</NavLink>
 						<NavLink to="/People">

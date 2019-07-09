@@ -9,7 +9,6 @@ export const cleanPlanets = (planets) => {
 };
 
 export const cleanPeople = (people) => {
-  {console.log(people)}
   return people.map(person => ({
     id: person.created,
     name: person.name,
