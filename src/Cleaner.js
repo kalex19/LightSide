@@ -5,6 +5,12 @@ export const cleanPlanets = (planets) => {
     population: planet.population,
     terrain: planet.terrain,
     diameter: planet.diameter,
+    climate: planet.climate,
+    // residents: planets.map(resident => {
+    //   fetch(resident.residents)
+    //   .then(response => response.json())
+    //   .then(data => data.name)
+    // }),
   }))
 };
 

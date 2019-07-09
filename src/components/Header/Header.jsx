@@ -16,7 +16,7 @@ export class Header extends Component {
 			vehicles: [],
 			favorites: [],
 			error: '',
-			num: 5
+			num: 4
 		};
 	}
 
@@ -83,14 +83,14 @@ export class Header extends Component {
 
 	handleClick = e => {
 		e.preventDefault();
-		if (this.state.num === 5) {
+		if (this.state.num === 4) {
 			this.setState({
 				num: 15
 			});
 			e.target.innerText = 'Show Less';
 		} else {
 			this.setState({
-				num: 5
+				num: 4
 			});
 			e.target.innerText = 'Show More';
 		}

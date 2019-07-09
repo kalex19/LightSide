@@ -4,23 +4,33 @@ import { shallow, mount } from 'enzyme';
 import Card from './Card.jsx';
 
 describe('Card', () => {
-    it.skip('should match snapshot', () => {
-        const wrapper = shallow(
-            <Card 
-                name="Kayla"  
-            />);
+    let wrapper;
+    let mockFunc;
 
-        expect(wrapper).toMatchSnapshot();
+    beforeEach = () => {
+        mockFunc = jest.fn()
+        wrapper = shallow(
+            <Card 
+                name='Katie' 
+                id='3' 
+                favoriteCard={mockFunc} />
+            );
+    }
+    it('should match snapshot', () => {
+        expect(wrapper).toMatchSnapshot()
+        
     });
 
-    it.skip('should match the snapshot with favorite', () => {
-        const wrapper = shallow(
-        <Card 
-            name="Katie" 
-            favorites={true} 
-        />);
+    it('should call favorite card on click', () => {
+        const mockCallBack = jest.fn();
+        const button = shallow(
+            <Card onClick={mockCallBack} />
 
-        expect(wrapper).toMatchSnapshot();  
+        )
+
+        button.find('button').simulate('click')
+        expect(mockCallBack).toBeCalledWith(3)
+
     });
 
     

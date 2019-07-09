@@ -16,6 +16,7 @@ export const getPlanets = () => {
         })
 };
 
+
 export const getVehicles = () => {
     return fetch('https://swapi.co/api/vehicles/')
         .then(response => response.json())
