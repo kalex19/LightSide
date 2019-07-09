@@ -33,19 +33,19 @@ export class App extends Component {
 		fetch('https://swapi.co/api/people/')
 		.then(response => response.json())
 		.then(data => {
-			this.setState({people: cleanPeople(data.results)})
+			this.setState({ people: cleanPeople(data.results) })
 		})
 		
 		fetch('https://swapi.co/api/planets/')
 		.then(response => response.json())
 		.then(data => {
-			this.setState({planets: cleanPlanets(data.results)})
+			this.setState({ planets: cleanPlanets(data.results) })
 		})
 		
 		fetch('https://swapi.co/api/vehicles/')
 		.then(response => response.json())
 		.then(data => {
-			this.setState({vehicles: cleanVehicles(data.results)})
+			this.setState({ vehicles: cleanVehicles(data.results) })
 		})
 	}
 
