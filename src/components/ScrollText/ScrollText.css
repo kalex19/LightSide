@@ -1,0 +1,44 @@
+.scrollText {
+  display: flex;
+  justify-content: center;
+  height: 600px;
+  perspective: 400px;
+  font-family: 'Pathway Gothic One', sans-serif;
+  font-weight: 600;
+  letter-spacing: 6px;
+  line-height: 200%;
+  text-align: justify;
+  font-size: 2em;
+  color: white;
+}
+
+.crawl {
+  position: relative;
+  top: -100px;
+  transform-origin: 50% 100%;
+  position: relative;
+  transform-origin: 50% 100%;
+  animation: crawl 60s linear;
+}
+
+.filmInfo {
+  font-size: 90%;
+  text-align: center;
+}
+
+.filmInfo h1 {
+  margin: 0 0 100px;
+  text-transform: uppercase;
+}
+
+@keyframes crawl {
+  0% {
+    top: 0;
+    transform: rotateX(20deg) translateZ(0);
+  }
+
+  100% {
+    top: -6000px;
+    transform: rotateX(25deg) translateZ(-2500px);
+  }
+}
