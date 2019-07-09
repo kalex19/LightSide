@@ -30,15 +30,15 @@ export class Header extends Component {
 		if (!!favorites) this.getFromStorage();
 
 		getPeople()
-		.then(people => this.setState(people))
+		.then(people => this.setState({people: people}))
 		.catch(this.setState({ error: 'Error fetching data' }))
 		
 		getPlanets()
-		.then(planets => this.setState(planets))
+		.then(planets => this.setState({planets: planets}))
 		.catch(this.setState({ error: 'Error fetching data' }))
 		
 		getVehicles()
-		.then(vehicles => this.setState(vehicles))
+		.then(vehicles => this.setState({vehicles: vehicles}))
 		.catch(this.setState({ error: 'Error fetching data' }))
 	}
 
