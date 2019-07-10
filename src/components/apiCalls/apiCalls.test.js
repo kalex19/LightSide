@@ -40,17 +40,7 @@ describe('fetched data', () => {
 
     it('should return a parsed response if status is ok', async () => {
         const result = await getPeople(mockData);
-
+        console.log(mockData)
         expect(result).toEqual(mockData)
     });
-
-    it('should return an error if status is not ok', async () => {
-        window.fetch = jest.fn().mockImplementationOnce(() => {
-            return Promise.resolve({
-                ok: false
-            });
-        });
-
-        await expect(getPeople()).rejects.toEqual(Error('Error fetching people cards'))
-    })
 })
