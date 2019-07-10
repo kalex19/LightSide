@@ -55,5 +55,5 @@ Not every component is unit tested. Nor are the nested fetch calls fetching. Bot
 
 ## Contributors
 
-* Kayla Larson(https://github.com/kaylalarson1990)
-* Katherine Lewis(https://github.com/kalex19)
+* Kayla Larson (https://github.com/kaylalarson1990)
+* Katherine Lewis (https://github.com/kalex19)
