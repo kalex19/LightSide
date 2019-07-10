@@ -1,16 +1,11 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import ReactDOM from 'react-dom';
-import Header from './Header';
+import Header from './Header.jsx';
+import { getPeople } from '../apiCalls/apiCalls.js'
 import { favoriteCard } from './Header';
 
 describe('Header', () => {
-    // let wrapper;
-
-    // beforeEach = () => {
-    //     wrapper = shallow(<Header />)
-    // }
-
     it('renders without crashing', () => {
         const div = document.createElement('div');
         ReactDOM.render(<Header />, div);
@@ -44,4 +39,5 @@ describe('Header', () => {
         const wrapper = shallow(<Header />)
         expect(wrapper.state().vehicles).toEqual([]);
     })
+
 })
