@@ -29,3 +29,7 @@ Launches the test runner in the interactive watch mode.
 
 ![Final Project](/assets/Final1.png)
 ![Final Project](/assets/Final2.png)
+
+##Contributors
+* Kayla Larson
+* Katherine Lewis
