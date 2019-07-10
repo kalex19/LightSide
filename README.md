@@ -42,12 +42,16 @@ Not every component is unit tested. Nor are the nested fetch calls fetching. Bot
 
 ## Comp
 
-![Comp](https://postimg.cc/4mbv1S1f)
+<img width="1142" alt="Comp" src="https://user-images.githubusercontent.com/37026730/60979965-d28fc900-a2f0-11e9-969e-435b66af51c0.png">
 
 ## Final Project
 
-![Final Project](https://postimg.cc/HjPVXGRD)
-![Final Project](https://postimg.cc/JsXDRTTw)
+<img width="1667" alt="Screen Shot 2019-07-10 at 8 55 29 AM" src="https://user-images.githubusercontent.com/37026730/60979873-aecc8300-a2f0-11e9-8667-f771de4b9442.png">
+
+<img width="1664" alt="Screen Shot 2019-07-10 at 8 55 42 AM" src="https://user-images.githubusercontent.com/37026730/60979875-aecc8300-a2f0-11e9-92b7-1e49f2e24258.png">
+
+<img width="1655" alt="Screen Shot 2019-07-10 at 8 56 03 AM" src="https://user-images.githubusercontent.com/37026730/60979878-affdb000-a2f0-11e9-9d03-b537a12213ed.png">
+
 
 ## Contributors
 
