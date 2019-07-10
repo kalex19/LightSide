@@ -47,5 +47,5 @@ Launches the test runner in the interactive watch mode.
 
 ## Contributors
 
-* Kayla Larson()
+* Kayla Larson(https://github.com/kaylalarson1990)
 * Katherine Lewis(https://github.com/kalex19)
