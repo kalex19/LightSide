@@ -36,6 +36,10 @@ Launches the test runner in the interactive watch mode.
 * DTR
 * Slack
 
+## Features/Issues
+
+Not every component is unit tested. Nor are the nested fetch calls fetching. Both of these issues could be improved in future iterations.
+
 ## Comp
 
 ![Comp](https://postimg.cc/4mbv1S1f)
@@ -47,5 +51,5 @@ Launches the test runner in the interactive watch mode.
 
 ## Contributors
 
-* Kayla Larson()
+* Kayla Larson(https://github.com/kaylalarson1990)
 * Katherine Lewis(https://github.com/kalex19)
