@@ -23,9 +23,9 @@ Launches the test runner in the interactive watch mode.
 
 ## Comp
 
-![Comp]('/assets/Comp.png')
+![Comp](assets/Comp.png)
 
 ## Final Project
 
-![Final Project]('/assets/Final1.png')
-![Final Project]('/assets/Final2.png')
+![Final Project](/assets/Final1.png)
+![Final Project](/assets/Final2.png)
