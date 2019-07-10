@@ -1,3 +1,36 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Container should match snapshot 1`] = `ShallowWrapper {}`;
+exports[`Container should match snapshot 1`] = `
+<main
+  className="card-container"
+>
+  <Card
+    favoriteCard={[MockFunction]}
+    info={
+      Object {
+        "class": "wheeled",
+        "id": "2014-12-10T15:36:25.724000Z",
+        "model": "Digger Crawler",
+        "name": "Sand Crawler",
+        "passengers": "30",
+      }
+    }
+  />
+  <Link
+    className="back-btn"
+    to="/"
+  >
+    <i
+      class="fab fa-jedi-order"
+    >
+       Back Home 
+    </i>
+  </Link>
+  <button
+    className="showMoreBtn"
+    onClick={[Function]}
+  >
+    Show More
+  </button>
+</main>
+`;

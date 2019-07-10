@@ -1,6 +1,6 @@
 import React from 'react';
 import './Card.css';
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'; 
 
 const Card = props => {
 	const { favoriteCard, info } = props;
@@ -13,7 +13,7 @@ const Card = props => {
 				</p>
 			);
 		}
-	}
+	} 
 
 	return (
 		<section className="card">

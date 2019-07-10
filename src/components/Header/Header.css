@@ -43,4 +43,9 @@ h1 {
 .btns:focus {
   background-color: yellow;
   color: black;
-}
+  
+  .change-btn {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 50px;
+  }
