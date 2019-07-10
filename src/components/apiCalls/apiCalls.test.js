@@ -1,14 +1,26 @@
-import { getPeople, getPlanets, getVehicles } from './apiCalls.js';
-import React from 'react';
+import {
+    getPeople
+} from './apiCalls.js';
 
 describe('fetched data', () => {
     let mockData;
 
     beforeEach(() => {
-        mockData = [
-            { people: { name: 'Klio' } },
-            { planets: { name: 'Pluto' } },
-            { vehicles: { name: 'BMW' } }
+        mockData = [{
+                people: {
+                    name: 'Klio'
+                }
+            },
+            {
+                planets: {
+                    name: 'Pluto'
+                }
+            },
+            {
+                vehicles: {
+                    name: 'BMW'
+                }
+            }
         ];
 
         window.fetch = jest.fn().mockImplementation(() => {
