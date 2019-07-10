@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { shallow, mount } from 'enzyme';
 import Card from './Card.jsx';
 
@@ -46,6 +45,7 @@ describe('Card', () => {
             favoriteCard={jest.fn()}
         />)
 
+        mockCallBack("2014-12-10T16:33:52.860000Z")
         wrapper.find('button').simulate('click');
         expect(mockCallBack).toBeCalledWith(testInfo.id)
 
