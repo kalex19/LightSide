@@ -1,21 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { shallow, mount } from 'enzyme';
+import {
+    shallow
+} from 'enzyme';
 import App from './App.jsx';
 
 
 describe('App', () => {
     let wrapper;
-    
+
     beforeEach(() => {
-        wrapper = shallow(<App />);
+        wrapper = shallow( < App / > );
     });
 
     it('renders without crashing', () => {
         const div = document.createElement('div');
-        ReactDOM.render(<App />, div);
+        ReactDOM.render( < App / > , div);
         ReactDOM.unmountComponentAtNode(div);
     });
 
-    
+
 })

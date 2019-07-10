@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './ScrollText.css';
-import PropTypes from 'prop-types';
 
 export class ScrollText extends Component {
 	constructor() {

@@ -1,7 +1,7 @@
 header {
+  align-items: center;
   display: flex;
   justify-content: space-around;
-  align-items: center
 }
 
 h1 {
@@ -13,7 +13,7 @@ h1 {
 }
 
 .icon {
-  color: yellow
+  color: yellow;
 }
 
 .change-btn {
@@ -27,25 +27,26 @@ h1 {
   cursor: pointer;
   font-family: 'Raleway';
   font-size: 16px;
+  margin: 1%;
   opacity: 0.8;
   padding: 10px;
   width: 150px;
-  margin: 1%;
 }
 
 .btns:hover {
   background-color: turquoise;
+  color: white;
   font-weight: bold;
   outline: none;
-  color: white;
 }
 
 .btns:focus {
   background-color: yellow;
   color: black;
-  
-  .change-btn {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 50px;
-  }
+}
+
+.change-btn {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 50px;
+}

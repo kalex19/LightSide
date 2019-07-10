@@ -2,15 +2,14 @@ import React from 'react';
 import {
   shallow
 } from 'enzyme';
-import Loading from './Loading.jsx';
+import Home from './Home.jsx';
 
-describe('Loading', () => {
+describe('Home', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = shallow( < Loading / > );
+    wrapper = shallow( < Home / > );
   });
-
   it('should match snapshot', () => {
     expect(wrapper).toMatchSnapshot();
   })

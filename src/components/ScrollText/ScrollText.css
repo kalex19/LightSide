@@ -1,24 +1,22 @@
 .scrollText {
+  color: white;
   display: flex;
-  justify-content: center;
-  height: 600px;
-  perspective: 400px;
   font-family: 'Pathway Gothic One', sans-serif;
+  font-size: 2em;
   font-weight: 600;
+  height: 600px;
+  justify-content: center;
   letter-spacing: 6px;
   line-height: 200%;
+  perspective: 400px;
   text-align: justify;
-  font-size: 2em;
-  color: white;
 }
 
 .crawl {
+  animation: crawl 60s linear;
   position: relative;
   top: -100px;
   transform-origin: 50% 100%;
-  position: relative;
-  transform-origin: 50% 100%;
-  animation: crawl 60s linear;
 }
 
 .filmInfo {

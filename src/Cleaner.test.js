@@ -1,7 +1,3 @@
-import React from 'react';
-import { shallow, mount } from 'enzyme';
-import { cleanPlanets, cleanPeople, cleanVehicles } from './Cleaner';
-
 describe('Cleaner', () => {
     describe('cleanPlanets', () => {
         let mockData;
@@ -19,7 +15,7 @@ describe('Cleaner', () => {
             }
         }
 
-        it.skip('should be called with the correct params', () => {
+        it('should be called with the correct params', () => {
             expect(mockFunc).toBeCalledWith(mockData);
         })
     })
