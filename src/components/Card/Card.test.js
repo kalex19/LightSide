@@ -4,7 +4,7 @@ import { shallow, mount } from 'enzyme';
 import Card from './Card.jsx';
 
 describe('Card', () => {
-    let wrapper;
+    let wrapper; 
     let mockFunc;
 
     beforeEach = () => {
@@ -20,6 +20,13 @@ describe('Card', () => {
         expect(wrapper).toMatchSnapshot()
         
     });
+
+    it('renders the name of a person, planet or vehicle', () => {
+        const addName = shallow(<Card name='Kayla' />);
+        const name = 'Kayla'
+
+        expect(addName.contains(name)).toEqual(true);
+    })
 
     it('should call favorite card on click', () => {
         const mockCallBack = jest.fn();
