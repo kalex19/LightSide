@@ -1,3 +1,47 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Card should match snapshot 1`] = `undefined`;
+exports[`Card should match snapshot 1`] = `
+<section
+  className="card"
+>
+  <button
+    onClick={[Function]}
+  >
+    <i
+      className="fab fa-galactic-senate favorite-btn undefined"
+    >
+       Favorite 
+    </i>
+  </button>
+  <h2>
+    <span
+      className="headers"
+    >
+       NAME: 
+    </span>
+     
+    TIE/LN starfighter
+  </h2>
+  <p
+    className="card-info"
+  >
+    CLASS
+    : 
+    starfighter
+  </p>
+  <p
+    className="card-info"
+  >
+    MODEL
+    : 
+    Twin Ion Engine/Ln Starfighter
+  </p>
+  <p
+    className="card-info"
+  >
+    PASSENGERS
+    : 
+    0
+  </p>
+</section>
+`;

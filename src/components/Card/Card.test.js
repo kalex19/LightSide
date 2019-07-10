@@ -4,39 +4,50 @@ import { shallow, mount } from 'enzyme';
 import Card from './Card.jsx';
 
 describe('Card', () => {
-    let wrapper; 
     let mockFunc;
+    let mockData
 
-    beforeEach = () => {
+    beforeEach (() => {
         mockFunc = jest.fn()
-        wrapper = shallow(
-            <Card 
-                name='Katie' 
-                id='3' 
-                favoriteCard={mockFunc} />
-            );
-    }
+        mockData = {
+            name: 'R2D2',
+            terrain: 'n/a',
+            diameter: '204',
+            population: '12999'
+        }
+    })
     it('should match snapshot', () => {
+        const testInfo = {
+            class: "starfighter",
+            id: "2014-12-10T16:33:52.860000Z",
+            model: "Twin Ion Engine/Ln Starfighter",
+            name: "TIE/LN starfighter",
+            passengers: "0"
+        }
+        const wrapper = shallow(<Card 
+            info={testInfo}
+            favoriteCard={jest.fn()}
+        />)
         expect(wrapper).toMatchSnapshot()
         
     });
 
-    it('renders the name of a person, planet or vehicle', () => {
-        const addName = shallow(<Card name='Kayla' />);
-        const name = 'Kayla'
-
-        expect(addName.contains(name)).toEqual(true);
-    })
-
     it('should call favorite card on click', () => {
         const mockCallBack = jest.fn();
-        const button = shallow(
-            <Card onClick={mockCallBack} />
+        const testInfo = {
+            class: "starfighter",
+            id: "2014-12-10T16:33:52.860000Z",
+            model: "Twin Ion Engine/Ln Starfighter",
+            name: "TIE/LN starfighter",
+            passengers: "0"
+        }
+        const wrapper = shallow(<Card 
+            info={testInfo}
+            favoriteCard={jest.fn()}
+        />)
 
-        )
-
-        button.find('button').simulate('click')
-        expect(mockCallBack).toBeCalledWith(3)
+        wrapper.find('button').simulate('click');
+        expect(mockCallBack).toBeCalledWith(testInfo.id)
 
     });
 

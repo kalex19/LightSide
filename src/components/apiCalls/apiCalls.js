@@ -1,4 +1,4 @@
-import { cleanPlanets, cleanPeople, cleanVehicles } from '../../Cleaner';
+import { cleanPlanets, cleanPeople, cleanVehicles } from '../../Cleaner'; 
 
 export const getPeople = () => {
     return fetch('https://swapi.co/api/people/')

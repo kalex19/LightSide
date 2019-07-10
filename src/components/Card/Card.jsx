@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 
 const Card = props => {
 	const { favoriteCard, info } = props;
+	console.log('info', info)
 	const cardInfo = [];
 	for (let key in info) {
 		if (key !== 'id' && key !== 'name' && key !== 'favorite') {
@@ -13,7 +14,7 @@ const Card = props => {
 				</p>
 			);
 		}
-	}
+	} 
 
 	return (
 		<section className="card">
