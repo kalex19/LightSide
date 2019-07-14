@@ -37,7 +37,7 @@ Launches the test runner in the interactive watch mode.
 * Slack
 
 ### Project Management
-* ![Trello Board:] (https://trello.com/b/iWuFaSRR/partner-light-side)
+[Trello Board](https://trello.com/b/iWuFaSRR/partner-light-side)
 
 ## Features/Issues
 
