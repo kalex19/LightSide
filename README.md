@@ -36,6 +36,9 @@ Launches the test runner in the interactive watch mode.
 * DTR
 * Slack
 
+### Project Management
+* ![Trello Board:] (https://trello.com/b/iWuFaSRR/partner-light-side)
+
 ## Features/Issues
 
 Not every component is unit tested. Nor are the nested fetch calls fetching. Both of these issues could be improved in future iterations.
