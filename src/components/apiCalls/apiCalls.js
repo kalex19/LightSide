@@ -1,12 +1,8 @@
-<<<<<<< HEAD
 import {
     cleanPlanets,
     cleanPeople,
     cleanVehicles
 } from '../../Cleaner';
-=======
-import { cleanPlanets, cleanPeople, cleanVehicles } from '../../Cleaner'; 
->>>>>>> 3800b15d3806f0c3498d7969a0f24050d784db90
 
 export const getPeople = () => {
     return fetch('https://swapi.co/api/people/')

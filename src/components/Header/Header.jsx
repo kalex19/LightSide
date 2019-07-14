@@ -22,12 +22,12 @@ export class Header extends Component {
 
 	componentDidMount() {
 		const { people, planets, vehicles, favorites } = this.state;
-		if (!!people && !!planets && !!vehicles) {
+		if (!people.length || !planets.length || !vehicles.length) {
 			getPeople();
 			getPlanets();
 			getVehicles();
 		}
-		if (!!favorites) this.getFromStorage();
+		getFromStorage();
 
 		getPeople()
 			.then(people => this.setState({ people: people }))
@@ -71,12 +71,8 @@ export class Header extends Component {
 		for (let key in this.state) {
 			if (localStorage.hasOwnProperty(key)) {
 				let value = localStorage.getItem(key);
-				try {
-					value = JSON.parse(value);
-					this.setState({ [key]: value });
-				} catch (e) {
-					this.setState({ [key]: value });
-				}
+				value = JSON.parse(value);
+				this.setState({ [key]: value });
 			}
 		}
 	};
@@ -110,24 +106,24 @@ export class Header extends Component {
 						<NavLink to="/">
 							<button className="btns home-btn">Home</button>
 						</NavLink>
-						<NavLink to="/Favorites">
+						<NavLink to="/favorites">
 							<button className="btns favorites-btn">
 								Favorites: <span> {this.state.favorites.length}</span>
 							</button>
 						</NavLink>
-						<NavLink to="/People">
+						<NavLink to="/people">
 							<button className="btns people-btn">People</button>
 						</NavLink>
-						<NavLink to="/Planets">
+						<NavLink to="/planets">
 							<button className="btns planets-btn">Planets</button>
 						</NavLink>
-						<NavLink to="/Vehicles">
+						<NavLink to="/vehicles">
 							<button className="btns vehicles-btn">Vehicles</button>
 						</NavLink>
 					</div>
 					<Route exact path="/" component={Home} />
 					<Route
-						path="/Favorites"
+						path="/favorites"
 						render={() => (
 							<Favorites
 								favorites={this.state.favorites}
@@ -137,7 +133,7 @@ export class Header extends Component {
 						)}
 					/>
 					<Route
-						path="/People"
+						path="/people"
 						render={() => (
 							<Container
 								favoriteCard={this.favoriteCard}
@@ -148,7 +144,7 @@ export class Header extends Component {
 						)}
 					/>
 					<Route
-						path="/Planets"
+						path="/planets"
 						render={() => (
 							<Container
 								favoriteCard={this.favoriteCard}
@@ -159,7 +155,7 @@ export class Header extends Component {
 						)}
 					/>
 					<Route
-						path="/Vehicles"
+						path="/vehicles"
 						render={() => (
 							<Container
 								favoriteCard={this.favoriteCard}
